@@ -17,3 +17,54 @@
 .logo{
   height: 2.1875rem;
 }
+
+// bottom navbar
+.bottom-navbar{
+  position:fixed;
+	bottom:0;
+	left:0;
+	right:0;
+  z-index:1000;
+  background: #fff;
+  display:none;
+  justify-content: center;
+  
+  ul{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    li{
+      display: inline-block;
+    }
+
+  }
+  
+}
+
+.bottom-nav-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-nav-bar-link{
+  color: $green;
+}
+
+.bottom-nav-bar-link:hover{
+  color: $green;
+  text-decoration: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .bottom-navbar{
+      display: flex;
+    }
+
+    .nav-hide{
+      display: none;
+    }
+}

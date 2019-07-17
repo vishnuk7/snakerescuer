@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->date('dob');
             $table->string('email')->unique();
             $table->string('aadar_num')->unique();
+            $table->string('blood_group');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
