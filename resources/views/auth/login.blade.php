@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <div class="py-3 d-flex justify-content-center flex-column align-items-center">
                         <img src="vector/snake.svg" class="logo-height" alt="">
-                        <p class="py-3" style="font-weight:700;">Login</p>
+                        <p style="font-weight:700;">Login</p>
                         <p class="login-p">Enter your credentials below</p>
                     </div>
 
