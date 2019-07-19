@@ -55,7 +55,7 @@
                                         </progress>
                                     </div>
                                 </label>
-                                <div></div>
+
 
                                 <!-- description -->
                                 <div class="form-group">
@@ -115,14 +115,19 @@
                                         <input type="text" id="location" name="location"
                                             class="form-control border-left-remove" disabled>
                                     </div>
+                                  </div>
 
                                     <!-- submit button -->
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-green">Submit</button>
                                     </div>
                             </form>
-
+                          </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+
 
     </main>
 
