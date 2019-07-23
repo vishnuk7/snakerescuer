@@ -115,24 +115,19 @@ input:focus {
   border-radius: 15px;
   font-size: 1.375rem; }
 
-.circle-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%; }
+.btn-green {
+  background: #050608;
+  color: #61C27C; }
 
-.rescuer-p {
-  color: #888; }
+.btn-green:hover {
+  background: #050608;
+  color: #61C27C; }
 
-.rescuer-label {
-  color: #333; }
+.green-link {
+  color: #61C27C; }
 
-.phone-num {
-  color: #3742fa;
-  font-weight: 700; }
-
-.phone-num:hover {
-  color: #3742fa;
-  font-weight: 700; }
+.green-link:hover {
+  color: #61C27C; }
 
 .login-card {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
@@ -142,19 +137,24 @@ input:focus {
 .logo-height {
   height: 3rem; }
 
+.login-icon {
+  color: #61C27C;
+  font-size: 1.2rem; }
+
 .border-left-remove {
   border-left: transparent; }
 
 .border-right-remove {
   border-right: transparent;
-  background: #e9ecef !important; }
+  background: #fff !important; }
 
-.btn-green {
-  background: #050608 !important;
-  color: #61C27C !important; }
+.login-p {
+  font-size: .9rem;
+  color: #a7a7a7; }
 
-.btn-green:hover {
-  background: #050608;
-  color: #61C27C; }
+.upload-image {
+  height: 100px;
+  width: 100px;
+  border: 1px solid #333; }
 
 /*# sourceMappingURL=callrescuer.css.map */

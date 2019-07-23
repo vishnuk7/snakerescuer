@@ -92,7 +92,7 @@
                                             <a  href="tel:5551234567" class="phone-num"><ion-icon class="pr-2" style="font-weight: 700;" name="call"></ion-icon> (555)123-4567</a>
                                         </span>
                                         <span>
-                                                <a href="tel:5551234567" class= "phone-num"><ion-icon class="pr-2" style="font-weight: 700;" name="call"></ion-icon> (555)123-4567</a>
+                                                <a href="tel:5551234567" class= "phone-num"><ion-icon class="pr-2" style="font-weight: 700;Rescuer" name="call"></ion-icon> (555)123-4567</a>
                                         </span>
                                     </p>
 

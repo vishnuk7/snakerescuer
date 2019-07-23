@@ -48,3 +48,26 @@
   font-size: .9rem;
   color: #a7a7a7;
 }
+
+
+
+.upload-camera{
+    height: 3rem;
+    width: 2rem;
+}
+
+.upload-image{
+    height: 100px;
+    width: 100px;
+    border: 1px solid #aeaeae;
+    border-radius: 50%;
+    transition: .2s all;
+    color: #aeaeae;
+}
+
+.upload-image:hover{
+    border: 1px solid $green;
+    background: $green;
+    transition: .2s all;
+    color: #fff !important;
+}

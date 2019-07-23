@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/addrescuer.css') }}">
 </head>
 <body>
     @include('partials/top-navbar')
@@ -32,6 +32,18 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+
+                        {{-- image --}}
+                        <div class="flex-column align-items-center d-flex" >
+                            <div class="upload-image" onclick="document.getElementById('file-upload').click()">
+                                <span style="height:100%;" class="d-flex justify-content-center flex-column align-items-center">
+                                    <ion-icon class=" upload-camera" name="camera"></ion-icon>
+                                    <p class="click-p">Click Here</p>
+                                </span>
+                            </div>
+                        </div>
+
+                        <input type="file" id="file-upload" name="image" style="display:none;">
 
                         {{-- Name --}}
                             <div class="form-group">
@@ -136,12 +148,6 @@
                                 @enderror
 
 
-
-                                @error('constituency')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
 
                             </div>
 
