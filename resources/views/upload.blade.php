@@ -66,7 +66,7 @@
                                 <!-- specie name -->
                                 <div class="form-group">
                                     <select name="species" class="form-control" id="exampleFormControlSelect1">
-                                        <option value="">Select the specie name ...</option>
+                                        <option value="">Select the species name ...</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                     </select>

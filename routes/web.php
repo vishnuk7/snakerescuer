@@ -24,6 +24,11 @@ Route::get('/admin/add-rescuer',function(){
     return view('admin/add-rescuer');
 });
 
+
+Route::get('/call-rescuer',function (){
+    return view('callrescuer');
+});
+
 //Testing Route
 
 
