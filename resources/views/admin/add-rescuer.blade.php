@@ -135,6 +135,25 @@
 
                                 </div>
 
+                                <div class="form-group">
+                                        <label class="form-control-label" for="phone2">Enter the second phone number</label>
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                            <div class="input-group-text border-right-remove">+91</div>
+                                            </div>
+                                            <input type="text" id="phone2" name="phone2" class="form-control border-left-remove " placeholder="Enter the second phone number" value="{{ old('phone2') }}" required pattern="^[0-9]{10}$">
+                                        </div>
+
+
+
+                                        @error('phone2')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                    </div>
+
                             {{-- constituency --}}
                             <div class="form-group">
                                 <label class="form-control-label" for="constituency">Enter the constituency</label>
@@ -152,24 +171,7 @@
                             </div>
 
 
-                            <div class="form-group">
-                                <label class="form-control-label" for="phone2">Enter the second phone number</label>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                    <div class="input-group-text border-right-remove">+91</div>
-                                    </div>
-                                    <input type="text" id="constituency" name="constituency" class="form-control border-left-remove " placeholder="Enter the first phone number" value="{{ old('constituency') }}" required pattern="^[0-9]{10}$">
-                                </div>
 
-
-
-                                @error('constituency')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                            </div>
 
                         <div class="form-group">
                             <label for="address">Enter the address</label>
