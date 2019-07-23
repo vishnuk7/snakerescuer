@@ -15,9 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Testing Route
 Route::get('/data-upload',function (){
     return view('upload');
 });
+
+Route::get('/admin/add-rescuer',function(){
+    return view('admin/add-rescuer');
+});
+
+//Testing Route
+
 
 Auth::routes();
 

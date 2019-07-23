@@ -136,7 +136,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 @include('partials/jsfile')
-<script src="js/upload.js"></script>
+<script src="{{ asset('js/upload.js') }}"></script>
 <script>
     var loc = document.getElementById("location");
 

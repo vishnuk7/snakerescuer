@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-  <a class="navbar-brand" href="#"><img class="logo" src="vector/snake.svg" ></a>
+  <a class="navbar-brand" href="#"><img class="logo" src="{{ asset('vector/snake.svg') }}" ></a>
   <button class="navbar-toggler nav-hide" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <ion-icon name="menu" class="menu"></ion-icon>
   </button>
@@ -22,6 +22,6 @@
       <a class="nav-link nav-link-login" href="#">Login</a>
       </li>
     </ul>
-    
+
   </div>
 </nav>
