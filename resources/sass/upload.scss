@@ -1,3 +1,4 @@
+
 @import 'font';
 @import 'navbar';
 @import 'common';
@@ -6,8 +7,21 @@ $theme:       $green;
 $dark-text:   $black;
 
 
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  color: $theme;
+  margin-bottom: 0;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: $dark-text;
+}
 // Upload Demo
-//
+// 
 .uploader {
   display: block;
   clear: both;
@@ -33,7 +47,7 @@ $dark-text:   $black;
     &.hover {
       border: 3px solid $theme;
       box-shadow: inset 0 0 0 6px #eee;
-
+      
       #start {
         i.fa {
           transform: scale(0.8);
@@ -78,7 +92,7 @@ $dark-text:   $black;
       display: none;
     }
   }
-
+  
   #notimage {
     display: block;
     float: left;
@@ -111,11 +125,11 @@ $dark-text:   $black;
 
   .progress[value]::-webkit-progress-value {
     background: linear-gradient(to right, darken($theme,8%) 0%, $theme 50%);
-    border-radius: 4px;
+    border-radius: 4px; 
   }
   .progress[value]::-moz-progress-bar {
     background: linear-gradient(to right, darken($theme,8%) 0%, $theme 50%);
-    border-radius: 4px;
+    border-radius: 4px; 
   }
 
   input[type="file"] {
