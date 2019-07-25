@@ -15,22 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Testing Route
-Route::get('/data-upload',function (){
+Route::get('/rescued',function (){
     return view('upload');
 });
-
-Route::get('/admin/add-rescuer',function(){
-    return view('admin/add-rescuer');
-});
-
-
-Route::get('/call-rescuer',function (){
-    return view('callrescuer');
-});
-
-//Testing Route
-
+Route::post('/addsnake','SnakesController@store');
 
 Auth::routes();
 
