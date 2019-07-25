@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/data-upload',function (){
+Route::get('/rescued',function (){
     return view('upload');
 });
+
+Route::post('/addsnake','SnakesController@store');
 
 Auth::routes();
 

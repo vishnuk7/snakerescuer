@@ -32,10 +32,11 @@
                                 <p class="login-p"> Add it to our database using the form below</p>
                             </div>
 
-                            <form id="file-upload-form" class="uploader">
+                            <form id="file-upload-form" class="uploader" action="/addsnake" method="POST" enctype="multipart/form-data">
 
+                            {{csrf_field()}}
                                 <!-- image upload -->
-                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                                <input id="file-upload" type="file" name="file" accept="image/*" />
 
                                 <label for="file-upload" id="file-drag">
 
@@ -59,14 +60,15 @@
 
                                 <!-- description -->
                                 <div class="form-group">
-                                    <textarea class="form-control" id="des" rows="3"
+                                    <textarea class="form-control" id="des" rows="3" name="desc"
                                         placeholder="Enter the description..."></textarea>
                                 </div>
+
 
                                 <!-- specie name -->
                                 <div class="form-group">
                                     <select name="species" class="form-control" id="exampleFormControlSelect1">
-                                        <option value="">Select the specie name ...</option>
+                                        <option value="">Select the species name ...</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                     </select>
@@ -84,7 +86,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="date" name="date"
-                                                class="form-control border-left-remove" disabled>
+                                                class="form-control border-left-remove" readonly>
                                         </div>
                                     </div>
 
@@ -97,7 +99,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="time" name="time"
-                                                class="form-control border-left-remove" disabled>
+                                                class="form-control border-left-remove" readonly>
                                         </div>
 
                                     </div>
@@ -113,7 +115,7 @@
                                             </div>
                                         </div>
                                         <input type="text" id="location" name="location"
-                                            class="form-control border-left-remove" disabled>
+                                            class="form-control border-left-remove" readonly>
                                     </div>
                                   </div>
 
@@ -136,7 +138,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 @include('partials/jsfile')
-<script src="js/upload.js"></script>
+<script src="{{ asset('js/upload.js') }}"></script>
 <script>
     var loc = document.getElementById("location");
 
