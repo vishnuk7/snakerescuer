@@ -18,7 +18,6 @@ Route::get('/', function () {
 Route::get('/rescued',function (){
     return view('upload');
 });
-
 Route::post('/addsnake','SnakesController@store');
 
 Auth::routes();

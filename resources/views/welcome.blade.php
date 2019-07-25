@@ -18,7 +18,7 @@
                 <p>For Snakes and People of Snakes </p>
                 <p>We save and protect snakes from people
                 also people from snakes</p>
-                <p><a href="" class="call-us">Call Us</a></p>
+                <p><a href="tel:7676837771" class="call-us">Call Us</a></p>
             </div>
         </div>
        </header>
@@ -57,7 +57,7 @@
 
                                 <p class="recuer-data">
                                     <span class="recuer-img mr-3"></span>
-                                    Recuer Name
+                                    Rescuer Name
                                 </p>
                             </div>
                         </div>

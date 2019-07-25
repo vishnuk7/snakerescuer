@@ -1,0 +1,62 @@
+@import 'font';
+@import 'navbar';
+@import 'common';
+
+$theme:       $green;
+$dark-text:   $black;
+
+.circle-img{
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.rescuer-p{
+   color: #888;
+}
+
+.rescuer-label{
+    color: #333;
+}
+
+.phone-num{
+    color: #3742fa;
+    font-weight: 700;
+}
+
+.phone-num:hover{
+    color: #3742fa;
+    font-weight: 700;
+}
+
+
+.login-card{
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border-left: 3px solid $green;
+}
+
+.logo-height{
+  height:3rem;
+}
+
+.border-left-remove{
+  border-left:transparent;
+}
+
+.border-right-remove{
+  border-right: transparent;
+  background: #e9ecef !important;
+}
+
+
+
+.btn-green{
+  background: $black !important;
+  color:$green !important;
+}
+
+.btn-green:hover{
+  background: $black;
+  color:$green;
+}

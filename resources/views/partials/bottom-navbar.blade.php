@@ -4,7 +4,7 @@
                     <a href="" class="bottom-nav-bar-link">
                         <div class="bottom-nav-item">
                             <span class="pb-1">
-                                <img src="vector/home.svg" class="icon">
+                                <img src="{{ asset('vector/home.svg') }}" class="icon">
                             <!-- <svg viewBox="0 0 100 100" class="icon icon-right-arrow">
                                      <use xlink:href="/vector/svg-defs.svg#icon-right-arrow"></use>
                             </svg> -->
@@ -56,6 +56,6 @@
                     </a>
                 </li>
 
-                
+
             </ul>
         </nav>
