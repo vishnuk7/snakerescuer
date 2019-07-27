@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Http\Request;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,10 +32,12 @@ Route::get('/admin/add-rescuer','RescuersController@index');
 
 Route::post('/admin/rescuer', 'RescuersController@store');
 
-Route::get('/call-rescuer',function (){
-    return view('callrescuer');
-});
+
+Route::get('/call-rescuers','RescuersController@callRescuers');
+
+Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

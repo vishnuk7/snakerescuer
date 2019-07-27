@@ -33,36 +33,29 @@
                             </div>
 
                             <form id="search" class="uploader">
-
-
-
-
+                                @csrf
                                 <!-- Select Constituency -->
                                 <div class="form-group">
-                                    <select name="constituency" class="form-control" id="exampleFormControlSelect1">
+                                    <label class="form-control-label" for="constituency">Enter the constituency</label>
+                                    <select name="constituency" id="constituency" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">Select the Constituency</option>
-                                        <option value="1">Madikeri</option>
-                                        <option value="2">Chamaraja</option>
-                                        <option value="3">Krishnaraja</option>
-                                        <option value="4">Narasimharaja</option>
-                                        <option value="5">Hunsur</option>
-                                        <option value="6">Chamundeshwari</option>
-                                        <option value="7">Virajpet</option>
-                                        <option value="8">Periyapatna</option>
-
+                                        <option value="Madikeri">Madikeri</option>
+                                        <option value="Chamaraja">Chamaraja</option>
+                                        <option value="Krishnaraja">Krishnaraja</option>
+                                        <option value="Narasimharaja">Narasimharaja</option>
+                                        <option value="Hunsur">Hunsur</option>
+                                        <option value="Chamundeshwari">Chamundeshwari</option>
+                                        <option value="Virajpet">Virajpet</option>
+                                        <option value="Periyapatna">Periyapatna</option>
                                     </select>
                                 </div>
-
-
-
-
 
 
                             </form>
 
                                 <!-- submit button -->
                                 <div class=" d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-green">Search For Rescuer</button>
+                                    <button id="click-btn" type="submit" class="btn btn-green">Search For Rescuer</button>
                                 </div>
 
 
@@ -71,34 +64,9 @@
                         </div>
 
 
-                        <div class=" pt-3 column">
-                            <div class="card login-card pt-3">
-                                <div class="py-3 pl-3 d-flex  flex-column align-items-left">
+                        <div id="result-card" class=" pt-3 row">
 
-                                    <div class="circle-img mb-3" style="background: #333;">
-                                    </div>
-                                    {{-- uncomment below line when you fetching the image and remove the above line 😂 --}}
-                                    {{-- <img src="" class="circle-img"> --}}
-
-                                    <p class="rescuer-p"><span class="rescuer-label pr-2">Name :</span>Mohammed Umar</p>
-                                    <p class="rescuer-p"><span class="rescuer-label pr-2">Constituency :</span>Chamaraja</p>
-                                    <p class="rescuer-p">
-                                        <span class="pr-2"><span class="rescuer-label pr-2">Blood Group :</span><ion-icon style="color:#e74c3c;" name="water"></ion-icon></span>B+
-                                    </p>
-                                    <p class="rescuer-p">
-                                        <span class="rescuer-label pr-2">Phone Numbers :</span>
-                                        <span class="pr-4">
-                                            <a  href="tel:5551234567" class="phone-num"><ion-icon class="pr-2" style="font-weight: 700;" name="call"></ion-icon> (555)123-4567</a>
-                                        </span>
-                                        <span>
-                                                <a href="tel:5551234567" class= "phone-num"><ion-icon class="pr-2" style="font-weight: 700;Rescuer" name="call"></ion-icon> (555)123-4567</a>
-                                        </span>
-                                    </p>
-
-                                </div>
                         </div>
-
-                      </div>
 
 
                     </div>
@@ -111,5 +79,50 @@
 </body>
 
     @include('partials/jsfile')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('#click-btn').click(function(e){
+            e.preventDefault();
+            $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+            var constituency = $('#constituency').val();
+            console.log(constituency);
+            $.ajax({
+                type:'GET',
+                url:"{{ url('/search-rescuers') }}",
+                data:{'constituency': constituency },
+                success:function(json){
+                    var jsonData = JSON.parse(json);
+                    $('#result-card').empty();
+                    $.each(jsonData,function(){
+                       var cardhtml = '<div class="col-md-12 mt-3">' +
+                                      '<div class="card login-card pt-3">' +
+                                      '<div class="py-3 pl-3 d-flex  flex-column align-items-left">' +
+                                      '<div class="circle-img mb-3" style="background: #333;"></div>' +
+                                      '<p class="rescuer-p"><span class="rescuer-label pr-2">Name :</span>'+this.name+'</p>' +
+                                      '<p class="rescuer-p"><span class="rescuer-label pr-2">Constituency :</span>'+this.constituency+'</p>'+
+                                      ' <p class="rescuer-p">'+
+                                      '<span class="pr-2"><span class="rescuer-label pr-2">Blood Group :</span><ion-icon style="color:#e74c3c;" name="water"></ion-icon></span>'+this.blood_group+'</p>'+
+                                      '<p class="rescuer-p phone-area">'+
+                                      '<span class="rescuer-label pr-2 phone-label">Phone Numbers :</span>'+
+                                      '<span class="pr-4 phone-btn">'+
+                                      '<a  href="tel:'+this.phone1+'" class="phone-num"><ion-icon class="pr-2" style="font-weight: 700;" name="call"></ion-icon>'+this.phone1+'</a>'+
+                                      '</span>'+
+                                      '<span>'+
+                                      '<a  href="tel:'+this.phone2+'" class="phone-num"><ion-icon class="pr-2" style="font-weight: 700;" name="call"></ion-icon>'+this.phone2+'</a>'+
+                                      '</span>'+
+                                      '</p>'+
+                                      '</div>'+
+                                      '</div>'+
+                                      '</div>'
+                                    $('#result-card').append(cardhtml);
+                    });
+                }
+            });
+        })
+    </script>
 
 </html>

@@ -20,13 +20,19 @@ $dark-text:   $black;
 }
 
 .phone-num{
-    color: #3742fa;
+    color: #fff;
     font-weight: 700;
+    padding: .2rem .6rem;
+    border-radius: 6px;
+    box-shadow: 0px 4px 20px rgba(55, 66, 250, 0.42);
+    font-weight: 700;
+    background: #3742fa;
+    transition: .2s all;
 }
 
 .phone-num:hover{
-    color: #3742fa;
-    font-weight: 700;
+    color: #fff;
+    background: #3742fa;
 }
 
 
@@ -59,4 +65,19 @@ $dark-text:   $black;
 .btn-green:hover{
   background: $black;
   color:$green;
+}
+
+@media screen and (max-width: 768px) {
+    .phone-area{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .phone-label{
+        padding-bottom: .6rem;
+    }
+
+    .phone-btn{
+        padding-bottom: 1.5rem;
+    }
 }

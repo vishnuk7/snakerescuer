@@ -3,59 +3,64 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\rescuers;
+use App\User;
+use Illuminate\Support\Facades\DB;
+use Image;
 
 class rescuersController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+
+    public function index(){
+        return view('admin/add-rescuer');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function allRescuers()
+    public function store(request $request){
+        $rescuer = new User();
+        if($request->hasFile('file')){
+        $filename = $request->file->getClientOriginalName();
+
+        $rescuer->image = date('Y-m-d-H:i:s').$filename;
+        $rescuer->name=request('name');
+        $rescuer->email=request('email');
+        $rescuer->aadhar=request('aadhar');
+        $rescuer->bloodgroup=request('bloodgroup');
+        $rescuer->dob=request('dob');
+        $rescuer->phone1=request('phone1');
+        $rescuer->phone2=request('phone2');
+        $rescuer->constituency=request('constituency');
+        $rescuer->address=request('address');
+        $rescuer->save();
+        $path = public_path('storage/upload/rescuer/' . $filename);
+        Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
+        }
+        return redirect('/admin/add-rescuer');
+    }
+
+
+    public function callRescuers(){
+        return view('callrescuer');
+    }
+
+    public function searchRescuers(Request $request)
     {
-        $data = rescuers::all();
+
+
+        $data = DB::table('users')->where('constituency',$request->constituency)->get();
         $data2 = array();
-        $i=0;
+        foreach($data as $data1) {
 
-
-
-        
-
-            foreach($data as $data1) {
-          
                 $data2[] = [
                     'name' => $data1->name,
-                    'dob' => $data1->dob,
-                    'age' => $data1->age,
                     'phone1' => $data1->phone1,
                     'phone2' => $data1->phone2,
-                    'email' => $data1->email,
                     'image' => $data1->image,
-                    'blood_group' => $data1->blood_group,
-                    'aadar' => $data1->aadar,
+                    'blood_group' => $data1->bloodgroup,
                     'constituency' => $data1->constituency,
-                    'address' => $data1->address,
                 ];
              }
+
              $data2 = json_encode($data2);
-             return response($data2);
-
-        
-        
-
-        
-
-
+             return response()->json($data2);
     }
 
 }
