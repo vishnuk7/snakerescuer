@@ -29,10 +29,11 @@ Route::get('/call-rescuer',function (){
     return view('callrescuer');
 });
 
+
 //Testing Route
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/test', 'rescuersController@allRescuers');

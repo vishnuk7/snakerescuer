@@ -17,12 +17,12 @@ class CreateRescuersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('dob');
-            $table->string('phone1')->unique();
-            $table->string('phone2')->unique();
-            $table->string('email')->unique();
-            $table->image('image');
+            $table->string('phone1',100)->unique();
+            $table->string('phone2',100)->unique();
+            $table->string('email',100)->unique();
+            $table->string('image');
             $table->string('blood_group');
-            $table->string('aadar')->unique();
+            $table->string('aadar',100)->unique();
             $table->string('constituency');
             $table->string('address'); 
             $table->timestamps();
