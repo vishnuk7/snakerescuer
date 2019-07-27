@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,11 @@ Route::get('/admin/add-rescuer',function(){
 Route::get('/call-rescuer',function (){
     return view('callrescuer');
 });
+
+Route::post('/test1', function (Request $request) {
+
+   dd($request->location);
+})->name('test1');
 
 //Testing Route
 

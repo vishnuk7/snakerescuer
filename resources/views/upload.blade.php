@@ -32,8 +32,8 @@
                                 <p class="login-p"> Add it to our database using the form below</p>
                             </div>
 
-                            <form id="file-upload-form" class="uploader">
-
+                        <form id="file-upload-form" action="{{ route('test1') }}" method="POST" class="uploader">
+                                @csrf
                                 <!-- image upload -->
                                 <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
@@ -59,7 +59,7 @@
 
                                 <!-- description -->
                                 <div class="form-group">
-                                    <textarea class="form-control" id="des" rows="3"
+                                    <textarea class="form-control" id="des" name="des" rows="3"
                                         placeholder="Enter the description..."></textarea>
                                 </div>
 
@@ -84,7 +84,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="date" name="date"
-                                                class="form-control border-left-remove" disabled>
+                                                class="form-control border-left-remove" readonly>
                                         </div>
                                     </div>
 
@@ -97,7 +97,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="time" name="time"
-                                                class="form-control border-left-remove" disabled>
+                                                class="form-control border-left-remove" readonly >
                                         </div>
 
                                     </div>
@@ -113,7 +113,7 @@
                                             </div>
                                         </div>
                                         <input type="text" id="location" name="location"
-                                            class="form-control border-left-remove" disabled>
+                                            class="form-control border-left-remove" readonly>
                                     </div>
                                   </div>
 
@@ -136,6 +136,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 @include('partials/jsfile')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="{{ asset('js/upload.js') }}"></script>
 <script>
     var loc = document.getElementById("location");
@@ -155,14 +156,15 @@
     }
 
     function updateTime() {
-        var t = document.getElementById("time");
-        t.value = moment().format('LTS');
+
     }
     setInterval(updateTime, 1000);
 
     function showPosition(position) {
         loc.value = position.coords.latitude + ", " + position.coords.longitude;
     }
+
+
 
 </script>
 
