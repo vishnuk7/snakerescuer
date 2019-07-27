@@ -32,10 +32,12 @@
                                 <p class="login-p"> Add it to our database using the form below</p>
                             </div>
 
-                        <form id="file-upload-form" action="{{ route('test1') }}" method="POST" class="uploader">
-                                @csrf
+                            <form id="file-upload-form" class="uploader" action="/addsnake" method="POST" enctype="multipart/form-data">
+
+                            {{csrf_field()}}
+
                                 <!-- image upload -->
-                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                                <input id="file-upload" type="file" name="file" accept="image/*" />
 
                                 <label for="file-upload" id="file-drag">
 
@@ -59,9 +61,10 @@
 
                                 <!-- description -->
                                 <div class="form-group">
-                                    <textarea class="form-control" id="des" name="des" rows="3"
+                                    <textarea class="form-control" id="des" rows="3" name="desc"
                                         placeholder="Enter the description..."></textarea>
                                 </div>
+
 
                                 <!-- specie name -->
                                 <div class="form-group">

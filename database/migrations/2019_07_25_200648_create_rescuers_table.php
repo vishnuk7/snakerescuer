@@ -15,16 +15,16 @@ class CreateRescuersTable extends Migration
     {
         Schema::create('rescuers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('image');
             $table->string('name');
-            $table->date('dob');
-            $table->string('phone1')->unique();
-            $table->string('phone2')->unique();
-            $table->string('email')->unique();
-            $table->image('image');
-            $table->string('blood_group');
-            $table->string('aadar')->unique();
+            $table->string('email');
+            $table->string('aadhar');
+            $table->string('bloodgroup');
+            $table->string('dob');
+            $table->string('phone1');
+            $table->string('phone2');
             $table->string('constituency');
-            $table->string('address'); 
+            $table->string('address');
             $table->timestamps();
         });
     }

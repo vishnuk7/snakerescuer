@@ -16,29 +16,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Testing Route
-Route::get('/data-upload',function (){
+Route::get('/rescued',function (){
     return view('upload');
 });
 
-Route::get('/admin/add-rescuer',function(){
-    return view('admin/add-rescuer');
-});
 
-
-Route::get('/call-rescuer',function (){
-    return view('callrescuer');
-});
-
-Route::post('/test1', function (Request $request) {
-
-   dd($request->location);
-})->name('test1');
-
-//Testing Route
-
+Route::post('/addsnake','SnakesController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/admin/add-rescuer','RescuersController@index');
+
+Route::post('/admin/rescuer', 'RescuersController@store');
+
+Route::get('/call-rescuer',function (){
+    return view('callrescuer');
+});
