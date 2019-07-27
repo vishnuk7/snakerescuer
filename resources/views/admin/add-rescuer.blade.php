@@ -156,8 +156,17 @@
                             {{-- constituency --}}
                             <div class="form-group">
                                 <label class="form-control-label" for="constituency">Enter the constituency</label>
-                                <input type="text" name="constituency" id="constituency" class="form-control " placeholder="Enter the constituency" value="{{ old('dob') }}">
-
+                                <select name="constituency" id="constituency" class="form-control" id="exampleFormControlSelect1">
+                                    <option value="">Select the Constituency</option>
+                                    <option value="Madikeri">Madikeri</option>
+                                    <option value="Chamaraja">Chamaraja</option>
+                                    <option value="Krishnaraja">Krishnaraja</option>
+                                    <option value="Narasimharaja">Narasimharaja</option>
+                                    <option value="Hunsur">Hunsur</option>
+                                    <option value="Chamundeshwari">Chamundeshwari</option>
+                                    <option value="Virajpet">Virajpet</option>
+                                    <option value="Periyapatna">Periyapatna</option>
+                                </select>
 
                                 @error('constituency')
                                     <span class="invalid-feedback" role="alert">

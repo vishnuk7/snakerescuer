@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rescuer;
+use App\User;
 use Image;
 
 class RescuersController extends Controller
@@ -13,10 +13,11 @@ class RescuersController extends Controller
     }
 
     public function store(request $request){
-        $rescuer = new Rescuer();
+        $pass ="password";
+        $rescuer = new User();
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
-        
+
         $rescuer->image = date('Y-m-d-H:i:s').$filename;
         $rescuer->name=request('name');
         $rescuer->email=request('email');
@@ -27,6 +28,7 @@ class RescuersController extends Controller
         $rescuer->phone2=request('phone2');
         $rescuer->constituency=request('constituency');
         $rescuer->address=request('address');
+        $request->password=$pass;
         $rescuer->save();
 
         $path = public_path('storage/upload/rescuer/' . $filename);

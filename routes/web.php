@@ -34,3 +34,7 @@ Route::post('/admin/rescuer', 'RescuersController@store');
 Route::get('/call-rescuer',function (){
     return view('callrescuer');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

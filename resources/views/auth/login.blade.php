@@ -20,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card login-card">
-              
+
 
                 <div class="card-body">
                     <div class="py-3 d-flex justify-content-center flex-column align-items-center">
@@ -42,16 +42,16 @@
                                     <input type="email" id="email" class="form-control border-left-remove @error('email') is-invalid @enderror" placeholder="ram@gmail.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 </div>
                         </div>
-                          
+
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            
 
-    
+
+
                         </div>
 
                         <div class="d-flex justify-content-center">
@@ -64,16 +64,16 @@
                                     <input type="password" id="passsword" class="form-control border-left-remove @error('password') is-invalid @enderror" placeholder="*********" value="{{ old('password') }}" required autocomplete="current-password">
                                 </div>
                         </div>
-                          
+
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            
 
-    
+
+
                         </div>
 
 
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center ">
-                            
+
                                 <button type="submit" class="btn btn-green">
                                     {{ __('Login') }}
                                 </button>
@@ -100,7 +100,7 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                            
+
                         </div>
                     </form>
                 </div>
@@ -110,9 +110,11 @@
 </div>
 
         </main>
-  
+
   @include('partials/bottom-navbar')
 </body>
     @include('partials/jsfile')
 </html>
+
+
 
