@@ -71,7 +71,6 @@
                         </div>
 
 
-
                         <div class=" pt-3 column">
                             <div class="card login-card pt-3">
                                 <div class="py-3 pl-3 d-flex  flex-column align-items-left">
