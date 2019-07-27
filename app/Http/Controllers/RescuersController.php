@@ -16,6 +16,10 @@ class rescuersController extends Controller
 
     public function store(request $request){
         $rescuer = new User();
+        $pass = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
+        $randpass =substr(str_shuffle($pass), 0, 7);
+        dd($randpass);
+
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
 
