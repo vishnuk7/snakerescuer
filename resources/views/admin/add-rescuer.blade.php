@@ -25,13 +25,12 @@
                 <div class="card-body">
                     <div class="py-3 d-flex justify-content-center flex-column align-items-center">
                         <img src="{{ asset('vector/snake.svg') }}" class="logo-height" alt="">
-                        <p style="font-weight:700;">Login</p>
-                        <p class="login-p">Enter your credentials below</p>
+                        <p style="font-weight:700;">Add rescuer</p>
+                        <p class="login-p">Enter rescure's details below</p>
                     </div>
 
-
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                    <form method="POST" action="/admin/rescuer" enctype="multipart/form-data">
+                    {{csrf_field()}}
 
                         {{-- image --}}
                         <div class="flex-column align-items-center d-flex" >
@@ -43,7 +42,7 @@
                             </div>
                         </div>
 
-                        <input type="file" id="file-upload" name="image" style="display:none;">
+                        <input type="file" id="file-upload" name="file" style="display:none;">
 
                         {{-- Name --}}
                             <div class="form-group">
@@ -73,12 +72,12 @@
                             </div>
 
 
-                         {{-- Aadar num --}}
+                         {{-- Aadhar num --}}
                             <div class="form-group">
-                                <label class="form-control-label" for="aadar">Aadar</label>
-                                <input type="text" name="aadar" id="aadar" class="form-control " placeholder="Enter the aadar number" value="{{ old('aadar') }}" required pattern="^[0-9]{10}$">
+                                <label class="form-control-label" for="aadhar">Aadhar</label>
+                                <input type="text" name="aadhar" id="aadhar" class="form-control " placeholder="Enter the aadhar number" value="{{ old('aadhar') }}" required pattern="^[0-9]{10}$">
 
-                                @error('aadar')
+                                @error('aadhar')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -89,7 +88,7 @@
                         {{-- Blood Group --}}
                             <div class="form-group">
                                 <label  for="blood">Select the blood group</label>
-                                <select class="form-control" name="blood"  id="blood">
+                                <select class="form-control" name="bloodgroup" id="blood">
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
                                     <option value="A+">A+</option>
@@ -122,7 +121,7 @@
                                     <div class="input-group-prepend">
                                     <div class="input-group-text border-right-remove">+91</div>
                                     </div>
-                                    <input type="text" id="phone1" class="form-control border-left-remove " placeholder="Enter the first phone number" value="{{ old('phone1') }}" required pattern="^[0-9]{10}$">
+                                    <input type="text" id="phone1" name="phone1" class="form-control border-left-remove " placeholder="Enter the first phone number" value="{{ old('phone1') }}" required pattern="^[0-9]{10}$">
                                 </div>
 
 
@@ -157,7 +156,7 @@
                             {{-- constituency --}}
                             <div class="form-group">
                                 <label class="form-control-label" for="constituency">Enter the constituency</label>
-                                <input type="text" name="constituency" id="constituency" class="form-control " placeholder="Enter the constituency" value="{{ old('dob') }}" required pattern="^[0-9]{10}$">
+                                <input type="text" name="constituency" id="constituency" class="form-control " placeholder="Enter the constituency" value="{{ old('dob') }}">
 
 
                                 @error('constituency')
@@ -165,12 +164,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-
-
-
                             </div>
-
-
 
 
                         <div class="form-group">
@@ -191,8 +185,6 @@
                                 <button type="submit" class="btn btn-green">
                                     Submit
                                 </button>
-
-
                         </div>
                     </form>
                 </div>

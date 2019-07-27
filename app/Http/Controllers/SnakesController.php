@@ -21,7 +21,7 @@ class SnakesController extends Controller
         $snake->location=request('location');
         $snake->save();
 
-        $path = public_path('storage/upload/' . $filename);
+        $path = public_path('storage/upload/snake/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
         }
         return redirect('/');

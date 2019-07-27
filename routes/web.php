@@ -18,9 +18,14 @@ Route::get('/', function () {
 Route::get('/rescued',function (){
     return view('upload');
 });
+
 Route::post('/addsnake','SnakesController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/add-rescuer','RescuersController@index');
+
+Route::post('/admin/rescuer', 'RescuersController@store');
 
