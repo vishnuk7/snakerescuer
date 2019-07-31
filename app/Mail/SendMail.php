@@ -32,6 +32,6 @@ class SendMail extends Mailable
     {
         $email_data['email'] = $request->email;
         $email_data['constituency'] = $request->constituency;
-        return $this->view('admin/mail',$email_data)->to('vishnu.kraman88@gmail.com');
+        return $this->view('admin/mail',$email_data)->to('shuklaanupam18@gmail.com');
     }
 }
