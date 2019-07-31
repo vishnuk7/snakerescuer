@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Rescuer;
 use Image;
+use Mail;
+use App\Mail\sendMail;
 
 class RescuersController extends Controller
 {
@@ -31,6 +33,9 @@ class RescuersController extends Controller
 
         $path = public_path('storage/upload/rescuer/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
+
+        //send mail
+        Mail::Send(new sendMail());
         }
         return redirect('/admin/add-rescuer');
     }
