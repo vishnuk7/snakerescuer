@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Image;
+use Mail;
+use App\Mail\sendMail;
 
 class rescuersController extends Controller
 {
@@ -36,6 +38,9 @@ class rescuersController extends Controller
         $rescuer->save();
         $path = public_path('storage/upload/rescuer/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
+
+        //send mail
+        Mail::Send(new sendMail());
         }
         return redirect('/admin/add-rescuer');
     }
