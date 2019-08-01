@@ -11,7 +11,6 @@ use App\Mail\sendMail;
 
 class rescuersController extends Controller
 {
-
     public function index(){
         return view('admin/add-rescuer');
     }
@@ -20,7 +19,6 @@ class rescuersController extends Controller
         $rescuer = new User();
         $pass = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
         $randpass =substr(str_shuffle($pass), 0, 7);
-        dd($randpass);
 
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
@@ -36,6 +34,8 @@ class rescuersController extends Controller
         $rescuer->constituency=request('constituency');
         $rescuer->address=request('address');
         $rescuer->save();
+
+        // compress and save image
         $path = public_path('storage/upload/rescuer/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
 

@@ -32,6 +32,11 @@ class SendMail extends Mailable
     {
         $email_data['email'] = $request->email;
         $email_data['constituency'] = $request->constituency;
-        return $this->view('admin/mail',$email_data)->to('shuklaanupam18@gmail.com');
+        $email_data['bloodgroup'] = $request->bloodgroup;
+        $email_data['dob'] = $request->dob;
+        $email_data['name'] = $request->name;
+        $email_data['bloodgroup'] = $request->bloodgroup;
+        return $this->subject('Added a new rescuer')->view('admin/mail',$email_data)->to('shuklaanupam18@gmail.com');
+        
     }
 }
