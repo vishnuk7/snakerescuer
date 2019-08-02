@@ -8,7 +8,10 @@
 </head>
 <body>
     <h1>Hello</h1>
-    <p>This is a sample email {{$email}}</p>
-    <p>{{$constituency}}</p>
+    <p>Greetings of the day!<p>
+    <p>Rescuer name: {{$name}} </p>
+    <p>Rescuer email: {{$email}} </p>
+    <p>Rescuer dob: {{$dob}} </p>
+    <p>Rescuer name: {{$constituency}} </p>
 </body>
 </html>

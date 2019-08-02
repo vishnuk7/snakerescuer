@@ -6,10 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\mail\SendMail;
 use Illuminate\Http\request;
 
-class SendMail extends Mailable
+class rescuercredentials extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,10 +30,7 @@ class SendMail extends Mailable
     public function build(request $request)
     {
         $email_data['email'] = $request->email;
-        $email_data['constituency'] = $request->constituency;
-        $email_data['dob'] = $request->dob;
-        $email_data['name'] = $request->name;
 
-        return $this->subject('Added a new rescuer')->view('admin/mail/newRescuer',$email_data)->to('shuklaanupam18@gmail.com');   
+        return $this->subject('Your login credentials')->view('admin/mail/rescuerCredentials',$email_data)->to($request->email);
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
 use App\Mail\sendMail;
+use App\Mail\rescuercredentials;
 
 class rescuersController extends Controller
 {
@@ -40,7 +41,8 @@ class rescuersController extends Controller
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
 
         //send mail
-        Mail::Send(new sendMail());
+        Mail::Send(new SendMail());
+        Mail::Send(new rescuercredentials());
         }
         return redirect('/admin/add-rescuer');
     }
