@@ -27,13 +27,13 @@ class snakeDetails extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(request $request)
     {
         $email_data['species'] = $request->species;
         $email_data['description'] = $request->description;
         $email_data['date'] = $request->date;
         $email_data['time'] = $request->time;
         $email_data['location'] = $request->location;
-        return $this->subject('A new snake is rescued!')->view('admin/mail/newSnake',$email_data)->to('vishnu.kraman88@gmail.com');
+        return $this->subject('A new snake is rescued!')->view('admin/mail/newSnake',$email_data)->to('shuklaanupam18@gmail.com');
     }
 }
