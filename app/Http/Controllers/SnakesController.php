@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Snake;
 use Image;
+use Mail;
+use App\Mail\snakeDetails;
 
 class SnakesController extends Controller
 {
@@ -23,6 +25,8 @@ class SnakesController extends Controller
 
         $path = public_path('storage/upload/snake/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
+            // send mail
+        Mail::Send(new snakeDetails());
         }
         return redirect('/');
     }

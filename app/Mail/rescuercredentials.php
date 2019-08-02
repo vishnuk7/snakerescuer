@@ -8,8 +8,9 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\request;
 
-class SendMail extends Mailable
+class rescuercredentials extends Mailable
 {
+    public $email_data;
     use Queueable, SerializesModels;
 
     /**
@@ -17,9 +18,9 @@ class SendMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($randpass)
     {
-        //
+        $this->pass= $randpass;
     }
 
     /**
@@ -30,10 +31,7 @@ class SendMail extends Mailable
     public function build(request $request)
     {
         $email_data['email'] = $request->email;
-        $email_data['constituency'] = $request->constituency;
-        $email_data['dob'] = $request->dob;
-        $email_data['name'] = $request->name;
-
-        return $this->subject('Added a new rescuer')->view('admin/mail/newRescuer',$email_data)->to('shuklaanupam18@gmail.com');   
+        $email_data['password'] = $this->pass;
+        return $this->subject('Your login credentials')->view('admin/mail/rescuerCredentials',$email_data)->to($request->email);
     }
 }

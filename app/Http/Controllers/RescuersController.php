@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
 
+
 use App\Mail\sendMail;
+
+use App\Mail\rescuercredentials;
 
 
 class rescuersController extends Controller
 {
-
     public function index(){
         return view('admin/add-rescuer');
     }
@@ -23,7 +25,6 @@ class rescuersController extends Controller
         $rescuer = new User();
         $pass = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
         $randpass =substr(str_shuffle($pass), 0, 7);
-
 
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
@@ -40,17 +41,18 @@ class rescuersController extends Controller
         $rescuer->address=request('address');
         $rescuer->password=Hash::make($randpass);
         $rescuer->save();
+
+        // compress and save image
         $path = public_path('storage/upload/rescuer/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
 
         //send mail
-        Mail::Send(new sendMail());
+        Mail::Send(new SendMail());
+        Mail::Send(new rescuercredentials($randpass));
         }
-
 
         return redirect('/admin/add-rescuer');
     }
-
 
     public function callRescuers(){
         return view('callrescuer');
@@ -58,8 +60,6 @@ class rescuersController extends Controller
 
     public function searchRescuers(Request $request)
     {
-
-
         $data = DB::table('users')->where('constituency',$request->constituency)->get();
         $data2 = array();
         foreach($data as $data1) {

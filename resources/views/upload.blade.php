@@ -87,7 +87,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="date" name="date"
-                                                class="form-control border-left-remove" readonly>
+                                                class="form-control border-left-remove">
                                         </div>
                                     </div>
 
@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
                                             <input type="text" id="time" name="time"
-                                                class="form-control border-left-remove" readonly >
+                                                class="form-control border-left-remove" >
                                         </div>
 
                                     </div>
