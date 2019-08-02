@@ -10,6 +10,7 @@ use Illuminate\Http\request;
 
 class rescuercredentials extends Mailable
 {
+    public $email_data;
     use Queueable, SerializesModels;
 
     /**
@@ -17,9 +18,9 @@ class rescuercredentials extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($randpass)
     {
-        //
+        $this->pass= $randpass;
     }
 
     /**
@@ -30,7 +31,7 @@ class rescuercredentials extends Mailable
     public function build(request $request)
     {
         $email_data['email'] = $request->email;
-
+        $email_data['password'] = $this->pass;
         return $this->subject('Your login credentials')->view('admin/mail/rescuerCredentials',$email_data)->to($request->email);
     }
 }

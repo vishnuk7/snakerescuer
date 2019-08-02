@@ -42,7 +42,7 @@ class rescuersController extends Controller
 
         //send mail
         Mail::Send(new SendMail());
-        Mail::Send(new rescuercredentials());
+        Mail::Send(new rescuercredentials($randpass));
         }
         return redirect('/admin/add-rescuer');
     }

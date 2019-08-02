@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\request;
 
-class SendMail extends Mailable
+class snakeDetails extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,13 +27,13 @@ class SendMail extends Mailable
      *
      * @return $this
      */
-    public function build(request $request)
+    public function build()
     {
-        $email_data['email'] = $request->email;
-        $email_data['constituency'] = $request->constituency;
-        $email_data['dob'] = $request->dob;
-        $email_data['name'] = $request->name;
-
-        return $this->subject('Added a new rescuer')->view('admin/mail/newRescuer',$email_data)->to('vishnu.kraman88@gmail.com');   
+        $email_data['species'] = $request->species;
+        $email_data['description'] = $request->description;
+        $email_data['date'] = $request->date;
+        $email_data['time'] = $request->time;
+        $email_data['location'] = $request->location;
+        return $this->subject('A new snake is rescued!')->view('admin/mail/newSnake',$email_data)->to('vishnu.kraman88@gmail.com');
     }
 }

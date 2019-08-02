@@ -7,10 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Congrats, you are now a certified snake rescuer.</h1>
-    <p>Your login credentials are:</p><br/>
-    <p>Email: {{$email}} <br/>
-        Password: {{$password}}
+    <h1>Snake details</h1>
+    <p>
+        Species: {{$species}}<br/>
+        Date: {{$date}} <br/>
+        Time: {{$time}} <br/>
+        Location: {{$location}} <br/>
+        Description: {{$description}}
     </p>
 </body>
 </html>
