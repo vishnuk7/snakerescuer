@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Image;
+use Mail;
 
 class rescuersController extends Controller
 {
@@ -18,7 +20,8 @@ class rescuersController extends Controller
         $rescuer = new User();
         $pass = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
         $randpass =substr(str_shuffle($pass), 0, 7);
-        dd($randpass);
+
+        $this->sendEmail($request->email,$request->name,$randpass);
 
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
@@ -33,13 +36,29 @@ class rescuersController extends Controller
         $rescuer->phone2=request('phone2');
         $rescuer->constituency=request('constituency');
         $rescuer->address=request('address');
+        $rescuer->password=Hash::make($randpass);
         $rescuer->save();
         $path = public_path('storage/upload/rescuer/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
         }
+
+
         return redirect('/admin/add-rescuer');
     }
 
+
+    public function sendEmail($receiverEmail,$receiverName,$password){
+        $data['name'] = $receiverName;
+        $data['username'] = $receiverEmail;
+        $data['password'] = $password;
+        Mail::send('emails.passwordMail', $data, function($message) use(&$receiverEmail,&$receiverName) {
+
+            $message->to($receiverEmail, $receiverName)
+
+                    ->subject('Your Username and Password');
+        });
+
+    }
 
     public function callRescuers(){
         return view('callrescuer');
