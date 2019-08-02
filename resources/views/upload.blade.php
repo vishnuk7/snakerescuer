@@ -159,7 +159,8 @@
     }
 
     function updateTime() {
-
+        var t = document.getElementById("time");
+        t.value = moment().format('LTS');
     }
     setInterval(updateTime, 1000);
 

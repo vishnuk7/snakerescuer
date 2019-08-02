@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
-use App\Mail\sendMail;
 use App\Mail\rescuercredentials;
 
 class rescuersController extends Controller
@@ -34,6 +34,7 @@ class rescuersController extends Controller
         $rescuer->phone2=request('phone2');
         $rescuer->constituency=request('constituency');
         $rescuer->address=request('address');
+        $rescuer->password=Hash::make($randpass);
         $rescuer->save();
 
         // compress and save image
@@ -44,9 +45,9 @@ class rescuersController extends Controller
         Mail::Send(new SendMail());
         Mail::Send(new rescuercredentials($randpass));
         }
+
         return redirect('/admin/add-rescuer');
     }
-
 
     public function callRescuers(){
         return view('callrescuer');
@@ -54,8 +55,6 @@ class rescuersController extends Controller
 
     public function searchRescuers(Request $request)
     {
-
-
         $data = DB::table('users')->where('constituency',$request->constituency)->get();
         $data2 = array();
         foreach($data as $data1) {
