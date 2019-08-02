@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
-<<<<<<< HEAD
-=======
+
 use App\Mail\sendMail;
->>>>>>> d2e5e9cf658392be79aede4ece8ea6def53cc53b
+
 
 class rescuersController extends Controller
 {
@@ -25,7 +24,6 @@ class rescuersController extends Controller
         $pass = '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz';
         $randpass =substr(str_shuffle($pass), 0, 7);
 
-        $this->sendEmail($request->email,$request->name,$randpass);
 
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
@@ -53,19 +51,6 @@ class rescuersController extends Controller
         return redirect('/admin/add-rescuer');
     }
 
-
-    public function sendEmail($receiverEmail,$receiverName,$password){
-        $data['name'] = $receiverName;
-        $data['username'] = $receiverEmail;
-        $data['password'] = $password;
-        Mail::send('emails.passwordMail', $data, function($message) use(&$receiverEmail,&$receiverName) {
-
-            $message->to($receiverEmail, $receiverName)
-
-                    ->subject('Your Username and Password');
-        });
-
-    }
 
     public function callRescuers(){
         return view('callrescuer');
