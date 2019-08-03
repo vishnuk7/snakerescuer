@@ -40,4 +40,3 @@ Route::get('/call-rescuers','RescuersController@callRescuers');
 
 // rescuer search
 Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
-
