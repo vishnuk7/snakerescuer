@@ -13,6 +13,7 @@ use Mail;
 use App\Mail\sendMail;
 
 use App\Mail\rescuercredentials;
+use App\Mail\SendMail;
 
 
 class rescuersController extends Controller
@@ -77,5 +78,4 @@ class rescuersController extends Controller
              $data2 = json_encode($data2);
              return response()->json($data2);
     }
-
 }
