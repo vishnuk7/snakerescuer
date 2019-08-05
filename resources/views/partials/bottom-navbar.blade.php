@@ -1,7 +1,7 @@
 <nav class="bottom-navbar">
             <ul>
                 <li>
-                    <a href="" class="bottom-nav-bar-link">
+                    <a href="{{ url('/')  }}" class="bottom-nav-bar-link">
                         <div class="bottom-nav-item">
                             <span class="pb-1">
                                 <img src="{{ asset('vector/home.svg') }}" class="icon">
@@ -14,8 +14,9 @@
                     </a>
                 </li>
 
+            @if(Auth::user())
                 <li>
-                    <a href="" class="bottom-nav-bar-link">
+                    <a href="{{ route('rescued') }}" class="bottom-nav-bar-link">
                         <div class="bottom-nav-item">
                             <span class="pb-1">
                             <img src="vector/upload.svg" class="icon">
@@ -27,6 +28,7 @@
                         </div>
                     </a>
                 </li>
+            @endif
 
                 <li>
                     <a href="" class="bottom-nav-bar-link">

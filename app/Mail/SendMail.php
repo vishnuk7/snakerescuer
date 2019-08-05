@@ -24,7 +24,7 @@ class SendMail extends Mailable
 
     /**
      * Build the message.
-     *
+     *u
      * @return $this
      */
     public function build(request $request)
@@ -34,6 +34,6 @@ class SendMail extends Mailable
         $email_data['dob'] = $request->dob;
         $email_data['name'] = $request->name;
 
-        return $this->subject('Added a new rescuer')->view('admin/mail/newRescuer',$email_data)->to('shuklaanupam18@gmail.com');   
+        return $this->subject('Added a new rescuer')->view('admin/mail/newRescuer',$email_data)->to('vishnu.kraman88@gmail.com');
     }
 }

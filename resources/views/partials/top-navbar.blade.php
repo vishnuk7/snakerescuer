@@ -7,20 +7,33 @@
   <div class="collapse navbar-collapse nav-center nav-hide" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <li class="nav-item pr-3">
-        <a class="nav-link nav-link-custom" href="#">Home</a>
+      <a class="nav-link nav-link-custom" href="{{ url('/') }}">Home</a>
       </li>
-      <li class="nav-item pr-3">
-        <a class="nav-link nav-link-custom" href="#">Upload</a>
-      </li>
+      @if (Auth::user())
+        <li class="nav-item pr-3">
+            <a class="nav-link nav-link-custom" href="{{ route('rescued') }}">Upload</a>
+        </li>
+      @endif
       <li class="nav-item pr-3">
         <a class="nav-link nav-link-custom" href="#">Blog</a>
       </li>
       <li class="nav-item pr-3">
         <a class="nav-link nav-link-custom" href="#">About</a>
       </li>
+      @if(Auth::guest())
       <li>
-      <a class="nav-link nav-link-login" href="#">Login</a>
+      <a class="nav-link nav-link-login" href="{{ route('login') }}">Login</a>
       </li>
+      @else
+      <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+             {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+            </ul>
+      </li>
+      @endif
     </ul>
 
   </div>

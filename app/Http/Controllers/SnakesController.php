@@ -14,7 +14,7 @@ class SnakesController extends Controller
         $snake = new Snake();
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
-        
+
         $snake->image = date('Y-m-d-H:i:s').$filename;
         $snake->species=request('species');
         $snake->description=request('desc');
@@ -26,7 +26,7 @@ class SnakesController extends Controller
         $path = public_path('storage/upload/snake/' . $filename);
         Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
             // send mail
-        Mail::Send(new snakeDetails());
+        // Mail::Send(new snakeDetails());
         }
         return redirect('/');
     }

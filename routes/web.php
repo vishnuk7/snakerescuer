@@ -20,7 +20,7 @@ Route::get('/', function () {
 // add a snake
 Route::get('/rescued',function (){
     return view('upload');
-});
+})->name('rescued');
 
 Route::post('/addsnake','SnakesController@store');
 
@@ -40,3 +40,8 @@ Route::get('/call-rescuers','RescuersController@callRescuers');
 
 // rescuer search
 Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
+
+//logout
+Route::get('/logout', 'Auth\LoginController@logout', function () {
+    return abort(404);
+});

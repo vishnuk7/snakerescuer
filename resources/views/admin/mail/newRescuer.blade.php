@@ -23,7 +23,7 @@
             background-color: #000;
             height: 10rem;
         }
-            
+
         .header-text{
             position: absolute;
             bottom: 0;
@@ -71,7 +71,7 @@
         <p>Rescuer dob: hehe</p>
         <p>Rescuer constituency: hehe</p>
     </center>
-    
+
 </body>
 
 </html>

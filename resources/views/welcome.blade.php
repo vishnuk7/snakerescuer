@@ -18,13 +18,13 @@
                 <p>For Snakes and People of Snakes </p>
                 <p>We save and protect snakes from people
                 also people from snakes</p>
-                <p><a href="/call-rescuer" class="call-us">Call Us</a></p>
+                <p><a href="/call-rescuers" class="call-us">Call Us</a></p>
             </div>
         </div>
        </header>
         <section class="section blog">
         <div class="container">
-      <h3 class="section-heading"><span class="circle mr-2"></span>Blog</h3>    
+      <h3 class="section-heading"><span class="circle mr-2"></span>Blog</h3>
 
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-center mb-4">
@@ -96,7 +96,7 @@
                                     Recuer Name
                                 </p>
 
-                                
+
                             </div>
                         </div>
                 </div>
@@ -109,7 +109,7 @@
                              <use xlink:href="/vector/svg-defs.svg#icon-arrow"></use>
                          </svg>
                       </span>
-                                    
+
                  </a>
             </p>
         </div>
@@ -128,7 +128,7 @@
                         <span>For People(incase of a snake bite)</span>
                     </h5>
 
-                   
+
                     <div class="row">
                         <div class="col-md-6 border-right-c py-4">
                         <div class="d-flex justify-content-center">
@@ -152,7 +152,7 @@
                         </span>
                         </p>
                     </div>
-                    
+
                     <div class="col-md-6 py-4">
                             <div class="d-flex justify-content-center">
                                     <div class="poly-box mb-3">Don’ts</div>
@@ -199,7 +199,7 @@
                         <span>For Snake Rescuers(incase of a rescuing a snake)</span>
                     </h5>
 
-                   
+
                     <div class="row">
                         <div class="col-md-6 py-4 border-right-c">
                         <div class="d-flex justify-content-center">
@@ -208,24 +208,24 @@
 
                         <p class="d-flex align-items-baseline">
                         <span class="circle mr-2" ></span><span>
-                            Instruct all the people present to clear the area. 
+                            Instruct all the people present to clear the area.
                         </span>
                         </p>
 
                         <p class="d-flex align-items-baseline">
                         <span class="circle mr-2" style="width:2%;"></span><span>
                             Necessary equipment like (hooks, tubes and pipes) are essential for
-                            safe handling. 
+                            safe handling.
                         </span>
                         </p>
 
                         <p class="d-flex align-items-baseline">
                         <span class="circle mr-2" style="width:2%;"></span><span>
-                            If the snake is fit for release then do it without delay,  under the guidance of the Forest Department. 
+                            If the snake is fit for release then do it without delay,  under the guidance of the Forest Department.
                         </span>
                         </p>
                     </div>
-                    
+
                     <div class="col-md-6 py-4">
                             <div class="d-flex justify-content-center">
                                 <div class="poly-box mb-3">Don’ts</div>
@@ -233,17 +233,17 @@
 
                             <p class="d-flex align-items-baseline">
                             <span class="circle mr-2" style="width:1%;"></span><span>
-                                Do not attend any rescue calls under the influence of drugs or alcohol. 
+                                Do not attend any rescue calls under the influence of drugs or alcohol.
                             </span>
                             </p>
 
                             <p class="d-flex align-items-baseline">
                             <span class="circle mr-2" style="width:3%;"></span><span>
-                                Do not unnecessarily handle rescued snakes. Handling puts snakes under more stress and can lead to diseases and in extreme cases death of the reptile. 
+                                Do not unnecessarily handle rescued snakes. Handling puts snakes under more stress and can lead to diseases and in extreme cases death of the reptile.
                             </span>
                             </p>
                     </div>
-                      
+
                     </div>
 
                       <div class="d-flex justify-content-center mt-4">
@@ -257,7 +257,7 @@
                             </a>
                         </div>
                 </div>
-            
+
         </section>
 
             @include('partials.bottom-navbar')

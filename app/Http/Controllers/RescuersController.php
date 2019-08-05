@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
 
-
-use App\Mail\sendMail;
-
 use App\Mail\rescuercredentials;
 use App\Mail\SendMail;
 
