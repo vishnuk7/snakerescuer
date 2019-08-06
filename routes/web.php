@@ -30,6 +30,11 @@ Auth::routes();
 // login
 Route::get('/home', 'HomeController@index')->name('home');
 
+// admin dashboard
+Route::get('/admin', function () {
+    return view('admin/adminDashboard');
+});
+
 // add rescuer
 Route::get('/admin/add-rescuer','RescuersController@index');
 
