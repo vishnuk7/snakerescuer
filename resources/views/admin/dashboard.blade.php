@@ -10,18 +10,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
-        integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
-
-    <!-- Custom fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap" rel="stylesheet">
-
     {{-- customs tyles --}}
-    <link rel="stylesheet" href="{{ asset('css/adminDashboard.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/adminLayout.min.css') }}">
 </head>
 
-<body id="page-top">
+<body>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -111,14 +104,14 @@
         </div>
         <!-- End of Page Wrapper -->
 
-        {{-- logout and scroll to top modal --}}
+        {{-- logout modal --}}
         @include('admin/partials/logoutModal')
 
         {{-- all cdn --}}
         @include('partials/jsfile')
 
         <!-- Custom scripts for all pages-->
-        <script src="js/adminDashboard.min.js"></script>
+        <script src="js/adminLayout.min.js"></script>
 
 </body>
 
