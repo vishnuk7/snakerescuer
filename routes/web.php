@@ -32,10 +32,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // admin dashboard
 Route::get('/admin', function () {
-    return view('admin/adminDashboard');
+    return view('admin/dashboard');
 });
 
-// add rescuer
+// (admin) add rescuer
 Route::get('/admin/add-rescuer','RescuersController@index');
 
 Route::post('/admin/rescuer', 'RescuersController@store');
