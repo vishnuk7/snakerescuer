@@ -265,7 +265,7 @@
         @include('partials/jsfile')
 
         <!-- Custom scripts for all pages-->
-        <script src="js/adminLayout.min.js"></script>
+        <script src="{{ asset('js/adminLayout.min.js') }}"></script>
 
 </body>
 
