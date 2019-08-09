@@ -11,7 +11,15 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- customs tyles --}}
+
     <link rel="stylesheet" href="{{ asset('css/adminLayout.min.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Sarala&display=swap');
+        body{
+            font-family: 'Sarala', sans-serif;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 
 <body>
