@@ -16,6 +16,14 @@
     {{-- page content styles --}}
     <link rel="stylesheet" href="{{ asset('css/addrescuer.css') }}">
 
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap');
+
+        body{
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+        }
+    </style>
 </head>
 
 <body>
