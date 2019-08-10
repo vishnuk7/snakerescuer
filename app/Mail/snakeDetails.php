@@ -30,7 +30,7 @@ class snakeDetails extends Mailable
     public function build(request $request)
     {
         $email_data['species'] = $request->species;
-        $email_data['description'] = $request->description;
+        $email_data['description'] = $request->desc;
         $email_data['date'] = $request->date;
         $email_data['time'] = $request->time;
         $email_data['location'] = $request->location;
