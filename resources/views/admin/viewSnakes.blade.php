@@ -16,6 +16,9 @@
     {{-- page content styles --}}
     <link rel="stylesheet" href="{{ asset('css/addrescuer.css') }}">
 
+    {{-- data tables custom styling --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap');
 
@@ -46,11 +49,28 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            @foreach ($snakes as $snake)
-                                {{$snake->id}}
-                            @endforeach
+                    <div class="row  ">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-striped table-hover" id="pagination">
+                                <thead class="thead-dark">
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Species</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Time</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($snakes as $snake)
+                                        <tr>
+                                            <th scope="row">{{ $snake->id }}</th>
+                                            <td>{{ $snake->species }}</td>
+                                            <td>{{ $snake->date }}</td>
+                                            <td>{{ $snake->time }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                              </table>
                         </div>
                     </div>
 
@@ -75,9 +95,15 @@
         {{-- all cdn --}}
         @include('partials/jsfile')
 
-        <!-- Custom scripts for all pages-->
+        <!-- Custom scripts for this pages-->
         <script src="{{ asset('js/adminLayout.min.js') }}"></script>
 
+        <script src="{{ asset('js/viewSnakes.js') }}" ></script>
+
+        {{-- datatables cdn --}}
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
 </body>
 
 </html>
