@@ -40,6 +40,9 @@ Route::get('/admin/add-rescuer','RescuersController@index');
 
 Route::post('/admin/rescuer', 'RescuersController@store');
 
+// (admin) view all snakes
+Route::get('/admin/rescued-snakes','SnakesController@viewSnakes');
+
 // contact a rescuer
 Route::get('/call-rescuers','RescuersController@callRescuers');
 

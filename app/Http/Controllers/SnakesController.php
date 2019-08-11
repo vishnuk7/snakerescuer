@@ -34,6 +34,11 @@ class SnakesController extends Controller
     }
         return redirect('/');
     }
+
+    public function viewSnakes(){
+        $snakes = Snake::all();
+        return view('admin/viewSnakes',['snakes'=>$snakes]);
+    }
 }
 
 
