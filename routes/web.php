@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// homnepage
+// homepage
 Route::get('/', function () {
     return view('welcome');
 });
@@ -30,7 +30,7 @@ Auth::routes();
 // login
 Route::get('/home', 'HomeController@index')->name('home');
 
-// admin dashboard
+// (admin) dashboard
 Route::get('/admin', function () {
     return view('admin/dashboard');
 });
@@ -39,6 +39,9 @@ Route::get('/admin', function () {
 Route::get('/admin/add-rescuer','RescuersController@index');
 
 Route::post('/admin/rescuer', 'RescuersController@store');
+
+// (admin) view all snakes
+Route::get('/admin/rescued-snakes','SnakesController@viewSnakes')->name('rescued-snakes');
 
 // contact a rescuer
 Route::get('/call-rescuers','RescuersController@callRescuers');
