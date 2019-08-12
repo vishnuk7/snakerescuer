@@ -22,10 +22,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,800&display=swap');
 
-        body{
+        body {
             font-family: 'Nunito', sans-serif;
             font-size: 1rem;
         }
+
     </style>
 </head>
 
@@ -49,28 +50,33 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="row  ">
+                    <div class="row ">
                         <div class="col-md-12 table-responsive">
                             <table class="table table-striped table-hover" id="pagination">
                                 <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Species</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Time</th>
-                                  </tr>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Species</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($snakes as $snake)
-                                        <tr>
-                                            <th scope="row">{{ $snake->id }}</th>
-                                            <td>{{ $snake->species }}</td>
-                                            <td>{{ $snake->date }}</td>
-                                            <td>{{ $snake->time }}</td>
-                                        </tr>
+                                    <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
+                                        data-image="{{$snake->image}}" data-id="{{$snake->id}}"
+                                        data-species="{{$snake->species}}" data-date="{{$snake->date}}"
+                                        data-time="{{$snake->time}}" data-description="{{$snake->description}}"
+                                        data-location="{{$snake->location}}">
+
+                                        <th scope="row">{{ $snake->id }}</th>
+                                        <td>{{ $snake->species }}</td>
+                                        <td>{{ $snake->date }}</td>
+                                        <td>{{ $snake->time }}</td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
-                              </table>
+                            </table>
                         </div>
                     </div>
 
@@ -89,6 +95,62 @@
         </div>
         <!-- End of Page Wrapper -->
 
+
+        <!-- Snake details Modal-->
+        <div class="modal fade" id="snakeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Snake details</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td id="snakeImage">
+                                        <img src="" alt="Snake Image">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>#</th>
+                                    <td id="snakeId"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Species</th>
+                                    <td id="snakeSpecies"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Date and Time</th>
+                                    <td id="snakeDateTime"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Location</th>
+                                    <td id="snakeLocation"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Description</th>
+                                    <td id="snakeDescription"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         {{-- logout and scroll to top modal --}}
         @include('admin/partials/logoutModal')
 
@@ -98,12 +160,12 @@
         <!-- Custom scripts for this pages-->
         <script src="{{ asset('js/adminLayout.min.js') }}"></script>
 
-        <script src="{{ asset('js/viewSnakes.js') }}" ></script>
+        <script src="{{ asset('js/viewSnakes.js') }}"></script>
 
         {{-- datatables cdn --}}
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
-        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" ></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 </body>
 
 </html>
