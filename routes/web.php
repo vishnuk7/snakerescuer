@@ -43,6 +43,9 @@ Route::post('/admin/rescuer', 'RescuersController@store');
 // (admin) view all snakes
 Route::get('/admin/rescued-snakes','SnakesController@viewSnakes')->name('rescued-snakes');
 
+//(admin) view all user
+Route::get('/admin/all-rescuers','UserController@viewUser')->name('all-rescuers');
+
 // contact a rescuer
 Route::get('/call-rescuers','RescuersController@callRescuers');
 

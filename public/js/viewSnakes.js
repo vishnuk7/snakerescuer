@@ -17,7 +17,7 @@ $(document).on("click", ".open-modal", function () {
     var description = $(this).data('description');
 
     $(".modal-body #snakeImage").src='http://127.0.0.1:8000/public/storage/upload/snake'+image;
-    document.getElementById('snakeId').innerHTML=id;
+    // document.getElementById('snakeId').innerHTML=id;
     document.getElementById('snakeSpecies').innerHTML=species;
     document.getElementById('snakeDateTime').innerHTML=DandT;
     document.getElementById('snakeLocation').innerHTML=location;

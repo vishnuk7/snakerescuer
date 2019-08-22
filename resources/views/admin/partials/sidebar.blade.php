@@ -38,7 +38,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Actions:</h6>
                 <a class="collapse-item" href="/admin/add-rescuer">Add rescuer</a>
-                <a class="collapse-item" href="cards.html">View rescuers</a>
+                <a class="collapse-item" href="{{ route('all-rescuers') }}">View rescuers</a>
             </div>
         </div>
     </li>

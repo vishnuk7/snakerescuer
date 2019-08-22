@@ -56,29 +56,33 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Species</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone No.</th>
+                                        <th scope="col">No. of snake captured</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
                                         $sno = 1;
                                     @endphp
-                                    @foreach ($snakes as $snake)
+                                    @foreach ($users as $user)
                                     <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
-                                        data-image="{{$snake->image}}" data-id="{{$snake->id}}"
-                                        data-species="{{$snake->species}}" data-date="{{$snake->date}}"
-                                        data-time="{{$snake->time}}" data-constituency="{{$snake->constituency}}"
-                                        data-address="{{$snake->address}}">
+                                        data-image="{{$user->image}}" data-id="{{$user->id}}"
+                                        data-name="{{$user->name}}" data-aadhar="{{$user->aadhar}}"
+                                        data-email="{{$user->email}}" data-bloodgroup="{{$user->bloodgroup}}"
+                                        data-phone1="{{$user->phone1}}" data-phone2="{{$user->phone2}}"
+                                        data-dob="{{$user->dob}}" data-constituency="{{$user->constituency}}" data-address="{{$user->address}}">
 
                                         <th scope="row">{{ $sno }}</th>
-                                        <td>{{ $snake->species }}</td>
-                                        <td>{{ $snake->date }}</td>
-                                        <td>{{ $snake->time }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone1 }}</td>
+                                        <td>/////</td>
+
                                     </tr>
                                     @php
-                                        $sno = 1;
+                                        $sno++;
                                     @endphp
                                     @endforeach
                                 </tbody>
@@ -108,7 +112,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Snake details</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Resuer details</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
@@ -118,7 +122,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <img id="snakeImage" src="" alt="Snake Image">
+                                        <img id="userImage" src="" alt="Profile Image">
                                     </td>
                                 </tr>
 
@@ -129,22 +133,47 @@
 
                                 <tr>
                                     <th>Name</th>
-                                    <td id="snakeSpecies"></td>
+                                    <td id="userName"></td>
                                 </tr>
 
                                 <tr>
-                                    <th>Date and Time</th>
-                                    <td id="snakeDateTime"></td>
+                                    <th>Email</th>
+                                    <td id="userEmail"></td>
                                 </tr>
 
                                 <tr>
-                                    <th>Location</th>
-                                    <td id="snakeLocation"></td>
+                                    <th>Aadhar</th>
+                                    <td id="userAadhar"></td>
                                 </tr>
 
                                 <tr>
-                                    <th>Description</th>
-                                    <td id="snakeDescription"></td>
+                                    <th>Blood Group</th>
+                                    <td id="userBloodGroup"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Date of Birth</th>
+                                    <td id="userDob"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>First Phone No. </th>
+                                    <td id="userPhone1"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Second Phone No.</th>
+                                    <td id="userPhone2"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>Constituency</th>
+                                    <th id="userConstituency"></th>
+                                </tr>
+
+                                <tr>
+                                    <th>Address</th>
+                                    <th id="userAddress"></th>
                                 </tr>
                             </tbody>
                         </table>
@@ -166,7 +195,7 @@
         <!-- Custom scripts for this pages-->
         <script src="{{ asset('js/adminLayout.min.js') }}"></script>
 
-        <script src="{{ asset('js/viewSnakes.js') }}"></script>
+        <script src="{{ asset('js/viewUser.js') }}"></script>
 
         {{-- datatables cdn --}}
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
