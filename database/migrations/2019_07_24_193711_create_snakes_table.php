@@ -15,6 +15,7 @@ class CreateSnakesTable extends Migration
     {
         Schema::create('snakes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
             $table->string('image');
             $table->string('description',255);
             $table->string('species',25);

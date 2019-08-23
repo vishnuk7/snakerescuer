@@ -7,6 +7,7 @@ use App\Snake;
 use Image;
 use Mail;
 use App\Mail\snakeDetails;
+use Illuminate\Support\Facades\Auth;
 use Storage;
 class SnakesController extends Controller
 {
@@ -26,6 +27,7 @@ class SnakesController extends Controller
 
 
         $snake->image = $filename;
+        $snake->user_id = Auth::user()->id;
         $snake->species = request('species');
         $snake->description = request('desc');
         $snake->date = request('date');
