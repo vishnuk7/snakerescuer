@@ -22,7 +22,7 @@ $(document).on("click", ".open-modal", function () {
     var constituency =$(this).data('constituency');
     var address = $(this).data('address')
 
-    $(".modal-body #userImage").src='http://127.0.0.1:8000/public/storage/upload/snake'+image;
+    $('#userImage').attr("src",image);
     // document.getElementById('userId').innerHTML=id;
     document.getElementById('userName').innerHTML=name;
     document.getElementById('userEmail').innerHTML=email;

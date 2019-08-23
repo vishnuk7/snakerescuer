@@ -67,10 +67,11 @@
                                     @endphp
                                     @foreach ($snakes as $snake)
                                     <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
-                                        data-image="{{$snake->image}}" data-id="{{$snake->id}}"
+                                        data-image='<?php echo asset("upload/snakes/$snake->image") ?>' data-id="{{$snake->id}}"
                                         data-species="{{$snake->species}}" data-date="{{$snake->date}}"
-                                        data-time="{{$snake->time}}" data-constituency="{{$snake->constituency}}"
-                                        data-address="{{$snake->address}}">
+                                        data-time="{{$snake->time}}" data-location="{{$snake->location}}"
+                                        data-description="{{$snake->description}}"
+                                        >
 
                                         <th scope="row">{{ $sno }}</th>
                                         <td>{{ $snake->species }}</td>
@@ -78,7 +79,7 @@
                                         <td>{{ $snake->time }}</td>
                                     </tr>
                                     @php
-                                        $sno = 1;
+                                        $sno++;
                                     @endphp
                                     @endforeach
                                 </tbody>
@@ -114,13 +115,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <img id="snakeImage" src="" alt="Snake Image">
+                        </div>
                         <table class="table table-borderless">
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <img id="snakeImage" src="" alt="Snake Image">
-                                    </td>
-                                </tr>
 
                                 {{-- <tr>
                                     <th>#</th>
@@ -144,7 +143,7 @@
 
                                 <tr>
                                     <th>Description</th>
-                                    <td id="snakeDescription"></td>
+                                    <td id="snakeDescription" style="word-wrap: anywhere"></td>
                                 </tr>
                             </tbody>
                         </table>

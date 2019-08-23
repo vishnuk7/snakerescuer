@@ -68,7 +68,7 @@
                                     @endphp
                                     @foreach ($users as $user)
                                     <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
-                                        data-image="{{$user->image}}" data-id="{{$user->id}}"
+                                        data-image='{{ asset("upload/users/$user->image") }}' data-id="{{$user->id}}"
                                         data-name="{{$user->name}}" data-aadhar="{{$user->aadhar}}"
                                         data-email="{{$user->email}}" data-bloodgroup="{{$user->bloodgroup}}"
                                         data-phone1="{{$user->phone1}}" data-phone2="{{$user->phone2}}"
@@ -112,19 +112,18 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Resuer details</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Rescuer details</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="d-flex justify-content-center" >
+                            <img id="userImage" src="" alt="Profile Image" style="border-radius: 50%;">
+                        </div>
                         <table class="table table-borderless">
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <img id="userImage" src="" alt="Profile Image">
-                                    </td>
-                                </tr>
+
 
                                 {{-- <tr>
                                     <th>#</th>
@@ -173,7 +172,7 @@
 
                                 <tr>
                                     <th>Address</th>
-                                    <th id="userAddress"></th>
+                                    <th id="userAddress" style="word-wrap: anywhere"></th>
                                 </tr>
                             </tbody>
                         </table>

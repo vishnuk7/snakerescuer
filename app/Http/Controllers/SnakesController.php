@@ -7,14 +7,23 @@ use App\Snake;
 use Image;
 use Mail;
 use App\Mail\snakeDetails;
-
+use Storage;
 class SnakesController extends Controller
 {
     public function store(request $request){
+
+
         $snake = new Snake();
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
-        $filename = date('dmYhis').$filename;
+        // $ext = $request->file->getClientOriginalExtension();
+        $filename = uniqid().$filename;
+
+        $store = Image::make($request->file('file')->getRealPath())->resize(300, 200);
+        $store = $store->encode('jpg');
+        $des = public_path('/upload/snakes');
+        $store->save($des.'/'.$filename);
+
 
         $snake->image = $filename;
         $snake->species = request('species');
@@ -25,8 +34,7 @@ class SnakesController extends Controller
         $snake->save();
 
 
-        $path = public_path('storage/upload/snake/' . $filename);
-        Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
+
 
         // send mail
         Mail::Send(new snakeDetails());

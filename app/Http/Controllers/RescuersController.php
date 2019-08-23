@@ -26,8 +26,18 @@ class rescuersController extends Controller
 
         if($request->hasFile('file')){
         $filename = $request->file->getClientOriginalName();
+            // $ext = $request->file->getClientOriginalExtension();
+        $filename = uniqid().$filename;
 
-        $rescuer->image = date('Y-m-d-H:i:s').$filename;
+        // compress and save image
+        $store = Image::make($request->file('file')->getRealPath())->resize(100, 100);
+        $store = $store->encode('jpg');
+        $des = public_path('/upload/users');
+        $store->save($des.'/'.$filename);
+
+
+
+        $rescuer->image = $filename;
         $rescuer->name=request('name');
         $rescuer->email=request('email');
         $rescuer->aadhar=request('aadhar');
@@ -40,16 +50,13 @@ class rescuersController extends Controller
         $rescuer->password=Hash::make($randpass);
         $rescuer->save();
 
-        // compress and save image
-        $path = public_path('storage/upload/rescuer/' . $filename);
-        Image::make($request->file('file')->getRealPath())->resize(300, 200)->save($path);
 
         //send mail
         Mail::Send(new SendMail());
         Mail::Send(new rescuercredentials($randpass));
         }
 
-        return redirect('/admin/add-rescuer');
+        return redirect('/admin');
     }
 
     public function callRescuers(){
