@@ -47,6 +47,7 @@ class SnakesController extends Controller
 
     public function viewSnakes(){
         $snakes = Snake::all();
+
         return view('admin/viewSnakes',['snakes'=>$snakes]);
     }
 }
