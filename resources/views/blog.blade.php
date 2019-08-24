@@ -70,4 +70,9 @@
                 {{ $snakes->links() }}
             </div>
     </div>
+    @include('partials.bottom-navbar')
+
 </body>
+
+@include('partials/jsfile')
+</html>
