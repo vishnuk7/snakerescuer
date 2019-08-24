@@ -68,12 +68,12 @@ class rescuersController extends Controller
         $data = DB::table('users')->where('constituency',$request->constituency)->get();
         $data2 = array();
         foreach($data as $data1) {
-
+                $image_path="upload/users/".$data1->image;
                 $data2[] = [
                     'name' => $data1->name,
                     'phone1' => $data1->phone1,
                     'phone2' => $data1->phone2,
-                    'image' => $data1->image,
+                    'image' => $image_path,
                     'blood_group' => $data1->bloodgroup,
                     'constituency' => $data1->constituency,
                 ];
