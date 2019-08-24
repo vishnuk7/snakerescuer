@@ -62,6 +62,7 @@
 
                                     <p class="recuer-data">
                                         @php
+                                            // Profile image
                                             $profile_image = "upload/users/".$snake->user->image;
                                         @endphp
                                         <img class="recuer-img mr-3" src="{{ asset($profile_image) }}" alt="profile image">
