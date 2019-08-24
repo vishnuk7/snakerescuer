@@ -38,3 +38,4 @@
 
   </div>
 </nav>
+@include('sweetalert::alert')
