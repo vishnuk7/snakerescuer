@@ -1,6 +1,4 @@
 <?php
-use Illuminate\Http\Request;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +19,7 @@ use Illuminate\Http\Request;
 |--------------------------------------------------------------------------
 */
 // (admin) dashboard
-Route::get('/admin', function () {
-    return view('admin/dashboard');
-});
+Route::get('/admin', 'CommonController@home');
 
 // (admin) add rescuer
 Route::get('/admin/add-rescuer','RescuersController@index');
@@ -34,7 +30,7 @@ Route::post('/admin/rescuer', 'RescuersController@store');
 Route::get('/admin/rescued-snakes','SnakesController@viewSnakes')->name('rescued-snakes');
 
 // delete snake
-Route::get('/admin/rescued-snakes/delete/{id}/{image}', ['uses' => 'SnakesController@destroy', 'as' => 'snakes.delete']);
+Route::get('/admin/rescued-snakes/delete/{id}', ['uses' => 'SnakesController@destroy', 'as' => 'snakes.delete']);
 
 
 //(admin) view all user
@@ -47,10 +43,7 @@ Route::get('/admin/all-rescuers','UserController@viewUser')->name('all-rescuers'
 | Homepage
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','CommonController@welcome')->name('welcome');
 
 
 // authentication routes

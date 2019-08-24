@@ -102,7 +102,7 @@
                        var cardhtml = '<div class="col-md-12 mt-3">' +
                                       '<div class="card login-card pt-3">' +
                                       '<div class="py-3 pl-3 d-flex  flex-column align-items-left">' +
-                                      '<div class="circle-img mb-3" style="background: #333;"></div>' +
+                                      '<div class="mb-3"><img class="circle-img" src="'+this.image+'"></div>' +
                                       '<p class="rescuer-p"><span class="rescuer-label pr-2">Name :</span>'+this.name+'</p>' +
                                       '<p class="rescuer-p"><span class="rescuer-label pr-2">Constituency :</span>'+this.constituency+'</p>'+
                                       ' <p class="rescuer-p">'+
