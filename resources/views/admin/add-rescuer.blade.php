@@ -67,13 +67,14 @@
                                                 onclick="document.getElementById('file-upload').click()">
                                                 <span style="height:100%;"
                                                     class="d-flex justify-content-center flex-column align-items-center">
-                                                    <ion-icon class=" upload-camera" name="camera"></ion-icon>
+                                                    <ion-icon class="upload-camera" name="camera"></ion-icon>
                                                     <p class="click-p">Click Here</p>
+                                                    <img id="profileImage" src="" alt="Image preview" style="display:none; height:100px; width:100px; border-radius: 50%;">
                                                 </span>
                                             </div>
                                         </div>
 
-                                        <input type="file" id="file-upload" name="file" style="display:none;">
+                                        <input type="file" id="file-upload" name="file" style="display:none;" onChange="readURL(this);">
 
                                         {{-- Name --}}
                                         <div class="form-group">
