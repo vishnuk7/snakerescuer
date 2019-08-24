@@ -19,3 +19,11 @@ input:focus{
   border:1px solid $green;
   box-shadow: 0 0 10px $green;
 }
+
+::selection {
+    background: #42ff5b; /* WebKit/Blink Browsers */
+  }
+
+::-moz-selection {
+background: #42ff5b; /* Gecko Browsers */
+}
