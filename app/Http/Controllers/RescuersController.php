@@ -10,7 +10,7 @@ use Image;
 use Mail;
 use App\Mail\rescuercredentials;
 use App\Mail\SendMail;
-
+use Illuminate\Support\Facades\File;
 
 class rescuersController extends Controller
 {
@@ -33,8 +33,6 @@ class rescuersController extends Controller
         $store = $store->encode('jpg');
         $des = public_path('/upload/users');
         $store->save($des.'/'.$filename);
-
-
 
         $rescuer->image = $filename;
         $rescuer->name=request('name');
@@ -84,5 +82,16 @@ class rescuersController extends Controller
 
              $data2 = json_encode($data2);
              return response()->json($data2);
+    }
+
+    public function destroy($deleteId,$image){
+        $deletePath = 'upload/users/'.$image;
+        File::delete($deletePath);
+        DB::table('users')->delete($deleteId);
+
+        // sweetalert
+        toast('Successfully removed a rescuer!','success');
+
+        return redirect()->back();
     }
 }
