@@ -20,7 +20,9 @@ $(document).on("click", ".open-modal", function () {
     var phone1 = $(this).data('phone1');
     var phone2 = $(this).data('phone2');
     var constituency =$(this).data('constituency');
-    var address = $(this).data('address')
+    var address = $(this).data('address');
+    var snakesCount = $(this).data('count');
+
 
     $('#userImage').attr("src",image);
     // document.getElementById('userId').innerHTML=id;
@@ -33,4 +35,5 @@ $(document).on("click", ".open-modal", function () {
     document.getElementById('userPhone2').innerHTML=phone2;
     document.getElementById('userConstituency').innerHTML=constituency;
     document.getElementById('userAddress').innerHTML=address;
+    document.getElementById('snakesCount').innerHTML=snakesCount;
 });

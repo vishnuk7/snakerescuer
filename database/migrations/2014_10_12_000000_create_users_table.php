@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('phone2');
             $table->string('constituency');
             $table->string('address');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

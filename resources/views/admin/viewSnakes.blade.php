@@ -78,7 +78,7 @@
                                         <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->date }}</td>
                                         <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->time }}</td>
                                         <td>
-                                            <a class="text-danger" href="{{ route('snakes.delete' ,['id' => $snake->id,'image' => $snake->image]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
+                                            <a class="text-danger" href="{{ route('snakes.delete' ,['id' => $snake->id,'image' => $snake->image, 'userId'=> $snake->user_id]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                     @php

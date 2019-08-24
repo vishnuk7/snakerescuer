@@ -72,14 +72,14 @@
                                         data-image='{{ asset("upload/users/$user->image") }}'
                                         data-name="{{$user->name}}" data-aadhar="{{$user->aadhar}}"
                                         data-email="{{$user->email}}" data-bloodgroup="{{$user->bloodgroup}}"
-                                        data-phone1="{{$user->phone1}}" data-phone2="{{$user->phone2}}"
+                                        data-phone1="{{$user->phone1}}" data-phone2="{{$user->phone2}}" data-count="{{ $user->count }}"
                                         data-dob="{{$user->dob}}" data-constituency="{{$user->constituency}}" data-address="{{$user->address}}">
 
                                         <th scope="row" data-toggle="modal" data-target="#snakeModal">{{ $sno }}</th>
                                         <td data-toggle="modal" data-target="#snakeModal">{{ $user->name }}</td>
                                         <td data-toggle="modal" data-target="#snakeModal">{{ $user->email }}</td>
                                         <td data-toggle="modal" data-target="#snakeModal">{{ $user->phone1 }}</td>
-                                        <td data-toggle="modal" data-target="#snakeModal">/////</td>
+                                        <td data-toggle="modal" data-target="#snakeModal">{{ $user->count }}</td>
                                         <td>
                                             <a class="text-danger" href="{{ route('rescuers.delete' ,['id' => $user->id,'image' => $user->image]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
                                         </td>
@@ -132,6 +132,10 @@
                                     <th>#</th>
                                     <td id="snakeId"></td>
                                 </tr> --}}
+                                <tr>
+                                    <th>No. of snakes rescued</th>
+                                    <td id="snakesCount"></td>
+                                </tr>
 
                                 <tr>
                                     <th>Name</th>

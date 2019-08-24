@@ -16,11 +16,13 @@ $(document).on("click", ".open-modal", function () {
     var location = $(this).data('location');
     var description = $(this).data('description');
 
+
     $('#snakeImage').attr("src",image);
     // document.getElementById('deleteId').value=id;
     document.getElementById('snakeSpecies').innerHTML=species;
     document.getElementById('snakeDateTime').innerHTML=DandT;
     document.getElementById('snakeLocation').innerHTML=location;
     document.getElementById('snakeDescription').innerHTML=description;
+
 
 });

@@ -33,7 +33,7 @@ Route::post('/admin/rescuer', 'RescuersController@store');
 Route::get('/admin/rescued-snakes','SnakesController@viewSnakes')->name('rescued-snakes');
 
 // delete snake
-Route::get('/admin/rescued-snakes/delete/{id}/{image}', ['uses' => 'SnakesController@destroy', 'as' => 'snakes.delete']);
+Route::get('/admin/rescued-snakes/delete/{id}/{image}/{userId}', ['uses' => 'SnakesController@destroy', 'as' => 'snakes.delete']);
 
 // delete snake
 Route::get('/admin/all-rescuers/delete/{id}/{image}', ['uses' => 'RescuersController@destroy', 'as' => 'rescuers.delete']);
