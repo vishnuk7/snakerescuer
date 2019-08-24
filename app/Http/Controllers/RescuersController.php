@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Image;
 use Mail;
-
 use App\Mail\rescuercredentials;
 use App\Mail\SendMail;
 
@@ -54,6 +53,10 @@ class rescuersController extends Controller
         //send mail
         Mail::Send(new SendMail());
         Mail::Send(new rescuercredentials($randpass));
+
+        // sweetalert
+        toast('Successfully added a rescuer!','success');
+
         }
 
         return redirect('/admin');
