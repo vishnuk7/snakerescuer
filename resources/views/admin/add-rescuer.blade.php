@@ -275,6 +275,9 @@
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('js/adminLayout.min.js') }}"></script>
 
+        {{-- page script --}}
+        <script src="{{ asset('js/imagePreview.js') }}"></script>
+
 </body>
 
 </html>
