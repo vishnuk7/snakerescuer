@@ -84,6 +84,11 @@ class rescuersController extends Controller
              return response()->json($data2);
     }
 
+    public function viewUser(){
+        $users = User::all();
+        return view('admin/viewUser',['users'=>$users]);
+    }
+
     public function destroy($deleteId,$image){
         $deletePath = 'upload/users/'.$image;
         File::delete($deletePath);
