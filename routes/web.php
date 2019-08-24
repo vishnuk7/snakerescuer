@@ -91,7 +91,7 @@ Route::post('/addsnake','SnakesController@store');
 |--------------------------------------------------------------------------
 */
 // contact a rescuer
-Route::get('/call-rescuers','RescuersController@callRescuers');
+Route::get('/call-rescuers','RescuersController@callRescuers')->name('call-rescuers');
 
 // rescuer search
 Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
