@@ -39,7 +39,7 @@
                                     <div class="input-group-prepend">
                                     <div class="input-group-text border-right-remove"><ion-icon class="login-icon" name="mail"></ion-icon></div>
                                     </div>
-                                    <input name="email" type="email" id="email" class="form-control border-left-remove @error('email') is-invalid @enderror" placeholder="ram@gmail.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input name="email" type="email" id="email" class="form-control border-left-remove @error('email') is-invalid @enderror" placeholder="example@gmail.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 </div>
                         </div>
 
