@@ -31,6 +31,9 @@ class SnakesController extends Controller
         // send mail
         Mail::Send(new snakeDetails());
 
+        // sweetalert
+        toast('Successfully added a snake!','success');
+
     }
         return redirect('/');
     }

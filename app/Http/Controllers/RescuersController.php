@@ -10,7 +10,6 @@ use Image;
 use Mail;
 use App\Mail\rescuercredentials;
 use App\Mail\SendMail;
-Use Alert;
 
 
 class rescuersController extends Controller
