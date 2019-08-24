@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +21,6 @@
 |--------------------------------------------------------------------------
 */
 // (admin) dashboard
-
-use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', 'CommonController@home');
 
@@ -58,7 +58,7 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
-| Login adn logout routes
+| Login and logout routes
 |--------------------------------------------------------------------------
 */
 // login
@@ -96,11 +96,20 @@ Route::get('/call-rescuers','RescuersController@callRescuers')->name('call-rescu
 // rescuer search
 Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Blog
 |--------------------------------------------------------------------------
 */
-
 Route::get('/blog','CommonController@blog')->name('blog');
 
+
+
+/*
+|--------------------------------------------------------------------------
+| Individual rescue count
+|--------------------------------------------------------------------------
+*/
+Route::get('/individualRescue','CommonController@individualRescue')->name('individualRescue');
