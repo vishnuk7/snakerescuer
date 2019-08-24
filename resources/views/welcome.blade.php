@@ -75,7 +75,7 @@
             </div>
 
             <p class="pt-4">
-                <a href="#" class="arrow-link">See more
+                     <a href="{{ route('blog') }}" class="arrow-link">See more
                      <span class="pl-2">
                         <svg viewBox="0 0 100 100" class="icon icon-arrow">
                              <use xlink:href="/vector/svg-defs.svg#icon-arrow"></use>

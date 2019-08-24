@@ -15,7 +15,7 @@
         </li>
       @endif
       <li class="nav-item pr-3">
-        <a class="nav-link nav-link-custom" href="#">Blog</a>
+        <a class="nav-link nav-link-custom" href="{{ route('blog') }}">Blog</a>
       </li>
       <li class="nav-item pr-3">
         <a class="nav-link nav-link-custom" href="#">About</a>

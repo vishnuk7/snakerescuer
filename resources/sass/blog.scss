@@ -1,0 +1,55 @@
+@import 'font';
+@import 'navbar';
+@import 'common';
+
+.card-blog{
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+  .card-title-blog{
+    color:$green;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .des-blog{
+    color:#565656;
+  }
+
+  .date-time{
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .recuer-img{
+    width:3.375rem;
+    height:3.375rem;
+    border-radius: 50%;
+    background: #333;
+  }
+
+  .recuer-data{
+      display: flex;
+      align-items: center;
+      margin-top: 4rem;
+  }
+
+  .dos-card{
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .page-item.active .page-link{
+    background-color: #1e272e;
+    border-color: #1e272e;
+  }
+
+  .page-link{
+    color: #1e272e;
+  }
+
+  .page-link:hover{
+      color: #61C27C;
+  }

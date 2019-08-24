@@ -23,4 +23,9 @@ class CommonController extends Controller
          ];
          return view('admin.dashboard',['data'=>$data]);
      }
+
+     public function blog(){
+         $snake = Snake::paginate(10);
+         return view('blog',['snakes'=>$snake]);
+     }
 }

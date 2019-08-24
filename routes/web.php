@@ -19,6 +19,9 @@
 |--------------------------------------------------------------------------
 */
 // (admin) dashboard
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/admin', 'CommonController@home');
 
 // (admin) add rescuer
@@ -93,4 +96,11 @@ Route::get('/call-rescuers','RescuersController@callRescuers');
 // rescuer search
 Route::get('/search-rescuers','RescuersController@searchRescuers')->name('search-rescuers');
 
+/*
+|--------------------------------------------------------------------------
+| Blog
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/blog','CommonController@blog')->name('blog');
 
