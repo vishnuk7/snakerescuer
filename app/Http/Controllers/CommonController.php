@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Snake;
 use Illuminate\Http\Request;
 use App\User;
+
 class CommonController extends Controller
 {
     public function welcome(){

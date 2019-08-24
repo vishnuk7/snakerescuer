@@ -59,7 +59,8 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone No.</th>
-                                        <th scope="col">No. of snake captured</th>
+                                        <th scope="col">No. of snake rescued</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,19 +68,21 @@
                                         $sno = 1;
                                     @endphp
                                     @foreach ($users as $user)
-                                    <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
-                                        data-image='{{ asset("upload/users/$user->image") }}' data-id="{{$user->id}}"
+                                    <tr class="open-modal"
+                                        data-image='{{ asset("upload/users/$user->image") }}'
                                         data-name="{{$user->name}}" data-aadhar="{{$user->aadhar}}"
                                         data-email="{{$user->email}}" data-bloodgroup="{{$user->bloodgroup}}"
                                         data-phone1="{{$user->phone1}}" data-phone2="{{$user->phone2}}"
                                         data-dob="{{$user->dob}}" data-constituency="{{$user->constituency}}" data-address="{{$user->address}}">
 
-                                        <th scope="row">{{ $sno }}</th>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->phone1 }}</td>
-                                        <td>/////</td>
-
+                                        <th scope="row" data-toggle="modal" data-target="#snakeModal">{{ $sno }}</th>
+                                        <td data-toggle="modal" data-target="#snakeModal">{{ $user->name }}</td>
+                                        <td data-toggle="modal" data-target="#snakeModal">{{ $user->email }}</td>
+                                        <td data-toggle="modal" data-target="#snakeModal">{{ $user->phone1 }}</td>
+                                        <td data-toggle="modal" data-target="#snakeModal">/////</td>
+                                        <td>
+                                            <a class="text-danger" href="{{ route('rescuers.delete' ,['id' => $user->id,'image' => $user->image]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
+                                        </td>
                                     </tr>
                                     @php
                                         $sno++;

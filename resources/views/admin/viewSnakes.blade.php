@@ -59,27 +59,30 @@
                                         <th scope="col">Species</th>
                                         <th scope="col">Date</th>
                                         <th scope="col">Time</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php
-                                        $sno = 1;
+                                    $sno = 1;
                                     @endphp
                                     @foreach ($snakes as $snake)
-                                    <tr class="open-modal" data-toggle="modal" data-target="#snakeModal"
-                                        data-image='<?php echo asset("upload/snakes/$snake->image") ?>' data-id="{{$snake->id}}"
-                                        data-species="{{$snake->species}}" data-date="{{$snake->date}}"
-                                        data-time="{{$snake->time}}" data-location="{{$snake->location}}"
-                                        data-description="{{$snake->description}}"
-                                        >
+                                    <tr class="open-modal"
+                                        data-image='<?php echo asset("upload/snakes/$snake->image") ?>'
+                                        data-species="{{$snake->species}}"
+                                        data-date="{{$snake->date}}" data-time="{{$snake->time}}"
+                                        data-location="{{$snake->location}}" data-description="{{$snake->description}}">
 
-                                        <th scope="row">{{ $sno }}</th>
-                                        <td>{{ $snake->species }}</td>
-                                        <td>{{ $snake->date }}</td>
-                                        <td>{{ $snake->time }}</td>
+                                        <th scope="row"  data-toggle="modal" data-target="#snakeModal">{{ $sno }}</th>
+                                        <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->species }}</td>
+                                        <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->date }}</td>
+                                        <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->time }}</td>
+                                        <td>
+                                            <a class="text-danger" href="{{ route('snakes.delete' ,['id' => $snake->id,'image' => $snake->image]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
+                                        </td>
                                     </tr>
                                     @php
-                                        $sno++;
+                                    $sno++;
                                     @endphp
                                     @endforeach
                                 </tbody>
@@ -120,11 +123,6 @@
                         </div>
                         <table class="table table-borderless">
                             <tbody>
-
-                                {{-- <tr>
-                                    <th>#</th>
-                                    <td id="snakeId"></td>
-                                </tr> --}}
 
                                 <tr>
                                     <th>Name</th>
@@ -171,6 +169,7 @@
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 </body>
 
 </html>
