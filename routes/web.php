@@ -33,6 +33,10 @@ Route::post('/admin/rescuer', 'RescuersController@store');
 // (admin) view all snakes
 Route::get('/admin/rescued-snakes','SnakesController@viewSnakes')->name('rescued-snakes');
 
+// delete snake
+Route::get('/admin/rescued-snakes/delete/{id}/{image}', ['uses' => 'SnakesController@destroy', 'as' => 'snakes.delete']);
+
+
 //(admin) view all user
 Route::get('/admin/all-rescuers','UserController@viewUser')->name('all-rescuers');
 
