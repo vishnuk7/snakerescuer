@@ -28,79 +28,49 @@
       <h3 class="section-heading"><span class="circle mr-2"></span>Blog</h3>
 
             <div class="row">
+                @foreach($snakes as $snake)
                 <div class="col-md-6 d-flex justify-content-center mb-4">
-                    <div class="card card-blog" style="width: 90%;">
-                        <img src="upload/1.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title card-title-blog">Opheodrys vernalis</h5>
-                                <p class="card-text des-blog mb-4">found inside house</p>
-                                <p class="date-time mb-3">
-                                    <span>
-                                    <svg viewBox="0 0 100 100" class="icon icon-calendar">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-calendar"></use>
-                                    </svg>
-                                    <span class="pl-2">10/07/2019</span>
-                                    </span>
-                                    <span>
-                                    <svg viewBox="0 0 100 100" class="icon icon-clock">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-clock"></use>
-                                    </svg>
-                                    <span class="pl-2">9:00 AM</span>
-                                    </span>
-                                </p>
+                        <div class="card card-blog" style="width: 90%;">
+                            @php
+                                $image_path = "upload/snakes/".$snake->image;
+                            @endphp
+                            <img src="{{ asset($image_path) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title card-title-blog">{{ $snake->species }}</h5>
+                                    <p class="card-text des-blog mb-4">{{ $snake->description }}</p>
+                                    <p class="date-time mb-3">
+                                        <span>
+                                        <svg viewBox="0 0 100 100" class="icon icon-calendar">
+                                            <use xlink:href="/vector/svg-defs.svg#icon-calendar"></use>
+                                        </svg>
+                                        <span class="pl-2">{{ $snake->date }}</span>
+                                        </span>
+                                        <span>
+                                        <svg viewBox="0 0 100 100" class="icon icon-clock">
+                                            <use xlink:href="/vector/svg-defs.svg#icon-clock"></use>
+                                        </svg>
+                                        <span class="pl-2">{{ $snake->time }}</span>
+                                        </span>
+                                    </p>
 
-                                <p class="mb-4">
-                                    <svg viewBox="0 0 100 100" class="icon icon-placeholder">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-placeholder"></use>
-                                    </svg>
-                                    <span class="pl-2">Manasgangotri 2.3019° N, 76.6490° E</span>
-                                </p>
+                                    <p class="mb-4">
+                                        <svg viewBox="0 0 100 100" class="icon icon-placeholder">
+                                            <use xlink:href="/vector/svg-defs.svg#icon-placeholder"></use>
+                                        </svg>
+                                        <span class="pl-2">{{ $snake->location }}</span>
+                                    </p>
 
-                                <p class="recuer-data">
-                                    <span class="recuer-img mr-3"></span>
-                                    Rescuer Name
-                                </p>
+                                    <p class="recuer-data">
+                                        @php
+                                            $profile_image = "upload/users/".$snake->user->image;
+                                        @endphp
+                                        <img class="recuer-img mr-3" src="{{ asset($profile_image) }}" alt="profile image">
+                                        {{ $snake->user->name }}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                </div>
-
-                <div class="col-md-6 d-flex justify-content-center mb-4">
-                    <div class="card card-blog" style="width: 90%;">
-                        <img src="upload/1.jpeg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title card-title-blog">Opheodrys vernalis</h5>
-                                <p class="card-text des-blog mb-4">found inside house</p>
-                                <p class="date-time mb-3">
-                                    <span>
-                                    <svg viewBox="0 0 100 100" class="icon icon-calendar">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-calendar"></use>
-                                    </svg>
-                                    <span class="pl-2">10/07/2019</span>
-                                    </span>
-                                    <span>
-                                    <svg viewBox="0 0 100 100" class="icon icon-clock">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-clock"></use>
-                                    </svg>
-                                    <span class="pl-2">9:00 AM</span>
-                                    </span>
-                                </p>
-
-                                <p class="mb-4">
-                                    <svg viewBox="0 0 100 100" class="icon icon-placeholder">
-                                        <use xlink:href="/vector/svg-defs.svg#icon-placeholder"></use>
-                                    </svg>
-                                    <span class="pl-2">Manasgangotri 2.3019° N, 76.6490° E</span>
-                                </p>
-
-                                <p class="recuer-data">
-                                    <span class="recuer-img mr-3"></span>
-                                    Recuer Name
-                                </p>
-
-
-                            </div>
-                        </div>
-                </div>
+                    </div>
+                @endforeach
             </div>
 
             <p class="pt-4">

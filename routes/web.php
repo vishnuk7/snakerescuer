@@ -19,7 +19,7 @@
 |--------------------------------------------------------------------------
 */
 // (admin) dashboard
-Route::get('/admin', 'DashboardController@home');
+Route::get('/admin', 'CommonController@home');
 
 // (admin) add rescuer
 Route::get('/admin/add-rescuer','RescuersController@index');
@@ -43,10 +43,7 @@ Route::get('/admin/all-rescuers','UserController@viewUser')->name('all-rescuers'
 | Homepage
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','CommonController@welcome')->name('welcome');
 
 
 // authentication routes
