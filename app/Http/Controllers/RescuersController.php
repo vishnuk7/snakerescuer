@@ -91,6 +91,7 @@ class rescuersController extends Controller
 
     public function destroy($deleteId,$image){
         $deletePath = 'upload/users/'.$image;
+
         File::delete($deletePath);
         DB::table('users')->delete($deleteId);
 

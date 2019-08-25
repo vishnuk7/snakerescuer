@@ -81,7 +81,7 @@
                                         <td data-toggle="modal" data-target="#snakeModal">{{ $user->phone1 }}</td>
                                         <td data-toggle="modal" data-target="#snakeModal">{{ $user->count }}</td>
                                         <td>
-                                            <a class="text-danger" href="{{ route('rescuers.delete' ,['id' => $user->id,'image' => $user->image]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
+                                            <a data-toggle="modal" class="text-danger open-deleteModal" href="#deleteModal" data-delete_id={{ $user->id }} data-delete_image={{ $user->image }} style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                     @php
@@ -191,6 +191,26 @@
             </div>
         </div>
 
+        {{-- Delete Model --}}
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure want to delete</h5>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a id="deleteLink" class="btn btn-danger" href="">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
         {{-- logout and scroll to top modal --}}
         @include('admin/partials/logoutModal')

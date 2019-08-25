@@ -26,3 +26,14 @@ $(document).on("click", ".open-modal", function () {
 
 
 });
+
+
+$(document).on("click", ".open-deleteModal", function () {
+    var id = $(this).data('delete_id');
+    var image = $(this).data('delete_image');
+    var user_id = $(this).data('delete_user_id');
+    var href_link = "/admin/rescued-snakes/delete/" + id + "/" + image + "/" + user_id;
+
+    $('#deleteLink').attr('href',href_link);
+
+});

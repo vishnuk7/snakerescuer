@@ -37,3 +37,12 @@ $(document).on("click", ".open-modal", function () {
     document.getElementById('userAddress').innerHTML=address;
     document.getElementById('snakesCount').innerHTML=snakesCount;
 });
+
+$(document).on("click", ".open-deleteModal", function () {
+    var id = $(this).data('delete_id');
+    var image = $(this).data('delete_image');
+    var href_link = "/admin/all-rescuers/delete/" + id + "/" + image;
+
+    $('#deleteLink').attr('href',href_link);
+
+});

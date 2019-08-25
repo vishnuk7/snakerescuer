@@ -78,7 +78,7 @@
                                         <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->date }}</td>
                                         <td  data-toggle="modal" data-target="#snakeModal">{{ $snake->time }}</td>
                                         <td>
-                                            <a class="text-danger" href="{{ route('snakes.delete' ,['id' => $snake->id,'image' => $snake->image, 'userId'=> $snake->user_id]) }}" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
+                                            <a data-toggle="modal" data-delete_user_id="{{ $snake->user_id }}" data-delete_id="{{ $snake->id }}" data-delete_image={{ $snake->image }} class="text-danger open-deleteModal" href="#deleteModal" style="font-size: 1.35rem;"><ion-icon name="trash"></ion-icon></a>
                                         </td>
                                     </tr>
                                     @php
@@ -152,6 +152,27 @@
                 </div>
             </div>
         </div>
+
+        {{-- Delete Model --}}
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <h5>Are you sure want to delete</h5>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a id="deleteLink" class="btn btn-danger" href="">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         {{-- logout and scroll to top modal --}}
