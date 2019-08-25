@@ -18,7 +18,13 @@
   height: 2.1875rem;
 }
 
-// bottom navbar
+
+
+/*
+|--------------------------------------------------------------------------
+| Bottom navbar
+|--------------------------------------------------------------------------
+*/
 .bottom-navbar{
   position:fixed;
 	bottom:0;
@@ -28,19 +34,20 @@
   background: #fff;
   display:none;
   justify-content: center;
-  
+
   ul{
     list-style-type: none;
     width: 100%;
     display: flex;
     justify-content: space-around;
+    margin-bottom: 0rem;
 
     li{
       display: inline-block;
     }
 
   }
-  
+
 }
 
 .bottom-nav-item{
@@ -68,3 +75,56 @@
       display: none;
     }
 }
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Options overlay
+|--------------------------------------------------------------------------
+*/
+.overlay {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s all;
+  }
+
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    color: #f1f1f1;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .overlay .closebtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2rem;
+    color: #818181;
+  }
+
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
